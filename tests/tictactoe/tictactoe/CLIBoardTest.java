@@ -1,10 +1,11 @@
 package tictactoe.tictactoe;
 
+import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import tictactoe.Board;
-
+import tictactoe.MockOutputStream;
+import tictactoe.MockPrintStream;
+import java.util.ArrayList;
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -12,18 +13,35 @@ import static junit.framework.Assert.assertEquals;
  */
 public class CLIBoardTest {
     private CLIBoard cliBoard;
+    private MockPrintStream printStream;
 
     @Before
     public void setUp() throws Exception {
-        cliBoard = new CLIBoard();
+      MockOutputStream outputStream = new MockOutputStream();
+      printStream = new MockPrintStream(outputStream);
+      printStream.setPrintCallHistory(new ArrayList<String>());
+      cliBoard = new CLIBoard(printStream);
     }
 
-    @Rule
-    public final StandardOutputStreamLog log = new StandardOutputStreamLog();
+    @Test
+    public void testPrintDivider() {
+      String expectedOutput = "------------------\n";
+      cliBoard.printDivider();
+      assertEquals(expectedOutput, printStream.lastPrintCall());
+    }
 
     @Test
-    public void testPrintRowNumbers() throws Exception {
-      cliBoard.printRowNumbers();
-      assertEquals("|  1  |  2  |  3  |", log.getLog());
+    public void testPrintBoardRow() {
+        String expectedOutput = "|  1  |  2  |  3  |\n";
+        cliBoard.printBoardRow(0);
+        assertEquals(expectedOutput, printStream.lastPrintCall());
+    }
+
+    @Test
+    public void testPrintBoard() {
+        String expectedOutput = "|  1  |  2  |  3  |\n------------------\n|  4  |  5  |  6  |\n------------------\n|  7  |  8  |  9  |\n------------------\n";
+        cliBoard.printBoard();
+        String actualOutput = printStream.getPrintCallHistory();
+        assertEquals(expectedOutput, actualOutput);
     }
 }

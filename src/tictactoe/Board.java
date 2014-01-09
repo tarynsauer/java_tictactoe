@@ -9,12 +9,16 @@ import java.util.HashMap;
  */
 public class Board {
 
-    private int rows = 3;
+    public int rows = 3;
     public String[] cells;
     public int[][] winningLines = new int[8][3];
 
     public Board() {
       cells = new String[9];
+      for (int num = 1; num <= (cells.length); num++) {
+        int i = num - 1;
+        cells[i] = Integer.toString(num);
+      }
     }
 
     public boolean hasAvailableCell() {

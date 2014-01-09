@@ -17,7 +17,7 @@ public class BoardTest {
     private Board board;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
       board = new Board();
     }
 
