@@ -3,6 +3,9 @@ package tictactoe;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -43,5 +46,35 @@ public class GameTest {
     public void testPlayerFirstMove() {
         Player player = game.getPlayerFirstMove();
         assertThat(player, instanceOf(Player.class));
+    }
+
+    @Test
+    public void testGameOverReturnsFalseForNonWinningNonTieGame() {
+        game.board.cells[0] = "X";
+        game.board.cells[1] = "O";
+        game.board.cells[2] = "X";
+        assertFalse(game.gameOver());
+    }
+
+    @Test
+    public void testGameOverReturnsTrueForWinningGame() {
+        game.board.cells[0] = "X";
+        game.board.cells[1] = "X";
+        game.board.cells[2] = "X";
+        assertTrue(game.gameOver());
+    }
+
+    @Test
+    public void testGameOverReturnsTrueForTieGame() {
+        game.board.cells[0] = "X";
+        game.board.cells[1] = "O";
+        game.board.cells[2] = "X";
+        game.board.cells[3] = "O";
+        game.board.cells[4] = "O";
+        game.board.cells[5] = "X";
+        game.board.cells[6] = "O";
+        game.board.cells[7] = "X";
+        game.board.cells[8] = "O";
+        assertTrue(game.gameOver());
     }
 }

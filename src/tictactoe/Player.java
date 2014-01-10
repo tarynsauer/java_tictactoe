@@ -9,4 +9,7 @@ public class Player {
     public Player(String marker) {
       this.marker = marker;
     }
+
+    public void addMarker(Board board, int move) {
+    }
 }

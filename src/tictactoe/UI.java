@@ -33,13 +33,14 @@ public class UI {
         stream.print("Game over! Player '" + playerMarker +"' wins!");
     }
 
-    public String getNextMove() {
+    public int getNextMove() {
         String move = "";
         try {
             move = bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return move;
+        int index = Integer.parseInt(move);
+        return index;
     }
 }

@@ -1,9 +1,5 @@
 package tictactoe;
 
-import com.sun.tools.doclets.internal.toolkit.util.SourceToHTMLConverter;
-
-import java.util.HashMap;
-
 /**
  * Created by Taryn on 1/7/14.
  */
@@ -77,6 +73,21 @@ public class Board {
         }
     }
 
+    public boolean winningGame(String marker) {
+        String lineMarkers[] = {marker,marker,marker};
+        for (int lineIndex = 0; lineIndex <= (rows * 2 + 2); lineIndex++) {
+            String line[] = new String[3];
+            for (int i = 0; i < rows; i++) {
+                String markerOnBoard = cells[winningLines[lineIndex][i]];
+                line[i] = markerOnBoard;
+            }
+            if (line == lineMarkers) {
+              return true;
+            }
+        }
+        return false;
+    }
+
     private boolean isOpen(int cellIndex) {
        if (cells[cellIndex] == null) {
             return true;
@@ -84,4 +95,5 @@ public class Board {
             return false;
         }
     }
+
 }

@@ -10,6 +10,7 @@ public class HumanPlayer extends Player {
     }
 
     public void addMarker(Board board, int move) {
+      super.addMarker(board, move);
       int cellIndex = move + 1;
       board.cells[cellIndex] = this.marker;
     }

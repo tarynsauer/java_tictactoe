@@ -71,4 +71,28 @@ public class BoardTest {
         String expectedResult = Arrays.deepToString(board.getWinningLines());
         assertEquals("[[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]", expectedResult);
     }
+
+    @Test
+    public void testWinningGameReturnsTrueForWinningGame() {
+        board.cells[0] = "X";
+        board.cells[1] = "X";
+        board.cells[2] = "X";
+        assertTrue(board.winningGame("X"));
+    }
+
+    @Test
+    public void testWinningGameReturnsTrueForDiagonalWinningGame() {
+        board.cells[0] = "X";
+        board.cells[4] = "X";
+        board.cells[8] = "X";
+        assertTrue(board.winningGame("X"));
+    }
+
+    @Test
+    public void testWinningGameReturnsFalseForNonWinningGame() {
+        board.cells[0] = "X";
+        board.cells[1] = "O";
+        board.cells[2] = "X";
+        assertTrue(board.winningGame("X"));
+    }
 }

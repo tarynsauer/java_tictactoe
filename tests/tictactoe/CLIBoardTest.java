@@ -1,7 +1,8 @@
-package tictactoe.tictactoe;
+package tictactoe;
 
 import org.junit.Before;
 import org.junit.Test;
+import tictactoe.CLIBoard;
 import tictactoe.MockOutputStream;
 import tictactoe.MockPrintStream;
 import java.util.ArrayList;

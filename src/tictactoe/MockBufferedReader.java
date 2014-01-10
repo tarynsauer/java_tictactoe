@@ -21,7 +21,7 @@ public class MockBufferedReader extends BufferedReader {
     }
 
     public MockBufferedReader(InputStreamReader inputStreamReader) {
-        super(inputStreamReader);    //To change body of overridden methods use File | Settings | File Templates.
+        super(inputStreamReader);
     }
 
     @Override
