@@ -11,27 +11,28 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Taryn on 1/6/14.
- */
+* Created by Taryn on 1/6/14.
+*/
+
 public class GameTest {
     private Game game;
 
     @Before
     public void setUp() throws Exception {
       game = new Game();
-      game.board = new MockBoard();
+      game.board = new Board();
     }
 
     @Test
     public void testCurrentPlayerWhenPlayerTwoTurn() {
       game.board.cells[0] = "X";
-      Assert.assertEquals(game.playerTwo, game.currentPlayer());
+      Assert.assertEquals(game.playerTwo.getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test
     public void testCurrentPlayerWhenPlayerOneTurn() {
       game.board.cells[0] = "O";
-      Assert.assertEquals(game.playerOne, game.currentPlayer());
+      Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test
@@ -39,7 +40,7 @@ public class GameTest {
       game.playerFirstMove = game.playerOne;
       game.board.cells[1] = "X";
       game.board.cells[0] = "O";
-      Assert.assertEquals(game.playerOne, game.currentPlayer());
+      Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test

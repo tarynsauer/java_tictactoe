@@ -12,18 +12,18 @@ import static org.junit.Assert.assertEquals;
  */
 public class HumanPlayerTest {
     private HumanPlayer player;
-    private MockBoard board;
+    private Board board;
 
     @Before
     public void setUp() throws Exception {
       player = new HumanPlayer("X");
-      board = new MockBoard();
+      board = new Board();
     }
 
     @Test
     public void testAddMarker() {
       player.addMarker(board, 1);
-      String expectedResult = Arrays.deepToString(board.cells);
-      assertEquals("[1, X, 3, 4, 5, 6, 7, 8, 9", expectedResult);
+      String actualResult = Arrays.deepToString(board.cells);
+      assertEquals("[X, 2, 3, 4, 5, 6, 7, 8, 9]", actualResult);
     }
 }

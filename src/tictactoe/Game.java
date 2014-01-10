@@ -1,5 +1,7 @@
 package tictactoe;
 
+import com.sun.tools.doclets.internal.toolkit.util.SourceToHTMLConverter;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -8,14 +10,14 @@ import java.io.PrintStream;
  * Created by Taryn on 1/6/14.
  */
 public class Game {
-    public CLIBoard board;
+    public Board board;
     public Player playerOne;
     public Player playerTwo;
     public Player playerFirstMove;
     public UI ui;
 
     public Game() {
-        this.board = new CLIBoard();
+        this.board = new Board();
         this.playerOne = new HumanPlayer("X");
         this.playerTwo = new HumanPlayer("O");
         this.playerFirstMove = getPlayerFirstMove();
@@ -30,9 +32,9 @@ public class Game {
         int markerX = countMarker("X");
         int markerO = countMarker("O");
         if (markerX > markerO) {
-            return playerOne;
-        } else if (markerO > markerX) {
             return playerTwo;
+        } else if (markerO > markerX) {
+            return playerOne;
         } else {
             return playerFirstMove;
         }
@@ -66,16 +68,6 @@ public class Game {
            return true;
         } else {
            return false;
-        }
-    }
-
-    public void playGame() {
-        while (!gameOver()) {
-            Player player = currentPlayer();
-            ui.nextMoveMessage(player.marker);
-            int move = ui.getNextMove();
-            player.addMarker(board, move);
-            board.printBoard();
         }
     }
 

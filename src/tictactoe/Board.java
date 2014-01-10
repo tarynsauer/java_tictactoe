@@ -1,5 +1,5 @@
 package tictactoe;
-
+import java.util.Arrays;
 /**
  * Created by Taryn on 1/7/14.
  */
@@ -15,11 +15,12 @@ public class Board {
         int i = num - 1;
         cells[i] = Integer.toString(num);
       }
+      getWinningLines();
     }
 
     public boolean hasAvailableCell() {
       for (int i = 0; i < cells.length; i++) {
-        if (cells[i] == null)
+        if ((!(cells[i] == "X") && !(cells[i] == "O")))
            return true;
         }
       return false;
@@ -74,14 +75,14 @@ public class Board {
     }
 
     public boolean winningGame(String marker) {
-        String lineMarkers[] = {marker,marker,marker};
-        for (int lineIndex = 0; lineIndex <= (rows * 2 + 2); lineIndex++) {
-            String line[] = new String[3];
+        String lineMarkers[] = {marker, marker, marker};
+        for (int lineIndex = 0; lineIndex < ((rows * 2) + 2); lineIndex++) {
+            String line[] = new String[rows];
             for (int i = 0; i < rows; i++) {
                 String markerOnBoard = cells[winningLines[lineIndex][i]];
                 line[i] = markerOnBoard;
             }
-            if (line == lineMarkers) {
+            if (Arrays.equals(line, lineMarkers)) {
               return true;
             }
         }
@@ -89,7 +90,7 @@ public class Board {
     }
 
     private boolean isOpen(int cellIndex) {
-       if (cells[cellIndex] == null) {
+       if ((!(cells[cellIndex] == "X") && !(cells[cellIndex] == "O"))) {
             return true;
         } else {
             return false;

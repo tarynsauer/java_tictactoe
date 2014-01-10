@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -23,9 +22,7 @@ public class BoardTest {
 
     @Test
     public void testInitializesCells() {
-      String[] expectedResult = new String[9];
-      expectedResult[1] = null;
-      assertArrayEquals(expectedResult, board.cells);
+      assertEquals("2", board.cells[1]);
     }
 
     @Test
@@ -68,8 +65,8 @@ public class BoardTest {
 
     @Test
     public void testWinningLinesReturnsAllWinningLines() {
-        String expectedResult = Arrays.deepToString(board.getWinningLines());
-        assertEquals("[[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]", expectedResult);
+        String actualResult = Arrays.deepToString(board.getWinningLines());
+        assertEquals("[[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]", actualResult);
     }
 
     @Test
@@ -93,6 +90,6 @@ public class BoardTest {
         board.cells[0] = "X";
         board.cells[1] = "O";
         board.cells[2] = "X";
-        assertTrue(board.winningGame("X"));
+        assertFalse(board.winningGame("X"));
     }
 }

@@ -53,6 +53,6 @@ public class UITest {
       ArrayList<String> inputArray = new ArrayList<String>();
       inputArray.add("1");
       bufferedReader.setInputHistory(inputArray);
-      assertEquals("1", ui.getNextMove());
+      assertEquals(1, ui.getNextMove());
     }
 }

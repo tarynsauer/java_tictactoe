@@ -2,10 +2,8 @@ package tictactoe;
 
 import org.junit.Before;
 import org.junit.Test;
-import tictactoe.CLIBoard;
-import tictactoe.MockOutputStream;
-import tictactoe.MockPrintStream;
 import java.util.ArrayList;
+
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -17,17 +15,17 @@ public class CLIBoardTest {
 
     @Before
     public void setUp() throws Exception {
-      MockOutputStream outputStream = new MockOutputStream();
-      printStream = new MockPrintStream(outputStream);
-      printStream.setPrintCallHistory(new ArrayList<String>());
-      cliBoard = new CLIBoard(printStream);
+        MockOutputStream outputStream = new MockOutputStream();
+        printStream = new MockPrintStream(outputStream);
+        printStream.setPrintCallHistory(new ArrayList<String>());
+        cliBoard = new CLIBoard(printStream);
     }
 
     @Test
     public void testPrintDivider() {
-      String expectedOutput = "------------------\n";
-      cliBoard.printDivider();
-      assertEquals(expectedOutput, printStream.lastPrintCall());
+        String expectedOutput = "------------------\n";
+        cliBoard.printDivider();
+        assertEquals(expectedOutput, printStream.lastPrintCall());
     }
 
     @Test
