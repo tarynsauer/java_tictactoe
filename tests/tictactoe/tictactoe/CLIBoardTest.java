@@ -1,6 +1,5 @@
 package tictactoe.tictactoe;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import tictactoe.MockOutputStream;
