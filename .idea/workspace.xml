@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82a52c95-cd1d-44e1-975e-81daee0b8d22" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tictactoe/MockBufferedReader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/tictactoe/UITest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/tictactoe/CLIBoardTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/tictactoe/CLIBoardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/UI.java" afterPath="$PROJECT_DIR$/src/tictactoe/UI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/MockOutputStream.java" afterPath="$PROJECT_DIR$/src/tictactoe/MockOutputStream.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tictactoe.iws" />
@@ -85,7 +82,7 @@
       <file leaf-file-name="UI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tictactoe/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="41" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="750">
+            <state line="12" column="24" selection-start="214" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="750">
               <folding>
                 <element signature="e#377#378#0" expanded="true" />
                 <element signature="e#429#430#0" expanded="true" />
@@ -130,22 +127,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BoardTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="43" selection-start="237" selection-end="237" vertical-scroll-proportion="0.23893805" vertical-offset="0" max-vertical-offset="1200">
+            <state line="9" column="43" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MockOutputStream.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MockOutputStream.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tictactoe/MockOutputStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="15" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.39823008" vertical-offset="0" max-vertical-offset="565">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#252#260#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,7 +150,7 @@
       <file leaf-file-name="MockPrintStream.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tictactoe/MockPrintStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="40" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="705">
+            <state line="28" column="18" selection-start="669" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="705">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,7 +181,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/tictactoe/Board.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/MockOutputStream.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MockPrintStream.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/PlayerTest.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/BoardTest.java" />
@@ -199,14 +194,14 @@
         <option value="$PROJECT_DIR$/src/tictactoe/tictactoe/CLIBoard.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/tictactoe/CLIBoardTest.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MockBufferedReader.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/UI.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/UITest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/MockOutputStream.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/UI.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-22" />
-    <option name="y" value="69" />
+    <option name="y" value="22" />
     <option name="width" value="1436" />
     <option name="height" value="878" />
   </component>
@@ -390,7 +385,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UITest">
+  <component name="RunManager" selected="JUnit.CLIBoardTest">
     <configuration default="false" name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -620,8 +615,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UITest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CLIBoardTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CLIBoardTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UITest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.BoardTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest" />
       </list>
@@ -663,12 +658,16 @@
       <created>1389240169351</created>
       <updated>1389240169351</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add UI class&#10;">
+      <created>1389318893985</created>
+      <updated>1389318893985</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-22" y="69" width="1436" height="878" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1436" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -686,7 +685,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15041783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15041783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23856613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -734,7 +733,8 @@
     </option>
     <MESSAGE value="Initial commit&#10;" />
     <MESSAGE value="Add player class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add player class" />
+    <MESSAGE value="Add UI class&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UI class&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -821,17 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockBufferedReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="18" selection-start="719" selection-end="729" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/tictactoe/UITest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="9" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="960">
@@ -858,28 +847,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockOutputStream.java">
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#260#0" expanded="true" />
-          </folding>
+        <state line="9" column="43" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1200">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockPrintStream.java">
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockBufferedReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="40" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="705">
+        <state line="27" column="18" selection-start="719" selection-end="729" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="750">
+        <state line="12" column="24" selection-start="214" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="750">
           <folding>
             <element signature="e#377#378#0" expanded="true" />
             <element signature="e#429#430#0" expanded="true" />
@@ -887,10 +875,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockPrintStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="43" selection-start="237" selection-end="237" vertical-scroll-proportion="0.23893805" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
+        <state line="28" column="18" selection-start="669" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="705">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.39823008" vertical-offset="0" max-vertical-offset="565">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
