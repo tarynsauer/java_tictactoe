@@ -5,5 +5,9 @@ package tictactoe;
  */
 public interface Player {
     public String getMarker();
+    public Player getOpponent();
+
+    void setOpponent(Player player);
     void addMarker(Board board, int move);
+    void makeMove(Board board);
 }

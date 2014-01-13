@@ -23,7 +23,8 @@ public class HumanPlayerTest {
     @Test
     public void testAddMarker() {
       player.addMarker(board, 1);
-      String actualResult = Arrays.deepToString(board.cells);
+      String actualResult = Arrays.deepToString(board.getCells());
       assertEquals("[X, 2, 3, 4, 5, 6, 7, 8, 9]", actualResult);
     }
+
 }

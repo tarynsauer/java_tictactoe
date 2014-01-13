@@ -1,13 +1,16 @@
 package tictactoe;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 /**
  * Created by Taryn on 1/7/14.
  */
 public class Board {
 
-    public int rows = 3;
-    public String[] cells;
-    public int[][] winningLines = new int[8][3];
+    private int rows = 3;
+    private String[] cells;
+    private int[][] winningLines = new int[8][3];
 
     public Board() {
       cells = new String[9];
@@ -18,12 +21,33 @@ public class Board {
       getWinningLines();
     }
 
+    public int getRows() {
+        return rows;
+    }
+
+    public String[] getCells() {
+        return cells;
+    }
+
+    public void setCells(String[] cells) {
+        this.cells = cells;
+    }
+
     public boolean hasAvailableCell() {
       for (int i = 0; i < cells.length; i++) {
         if ((!(cells[i] == "X") && !(cells[i] == "O")))
            return true;
         }
       return false;
+    }
+
+    public ArrayList<Integer> availableCellIndexes() {
+        ArrayList<Integer> openCellIndexes = new ArrayList<Integer>();
+        for (int i = 0; i < cells.length; i++) {
+            if ((!(cells[i] == "X") && !(cells[i] == "O")))
+                openCellIndexes.add(i);
+        }
+        return openCellIndexes;
     }
 
     public boolean isValidCell(int cellIndex) {
@@ -36,11 +60,19 @@ public class Board {
     }
 
     public int[][] getWinningLines() {
-      getRows();
+      getAllRows();
       getColumns();
       getDiagonal(0, 6, 4);
       getDiagonal(2, 7, 2);
       return winningLines;
+    }
+
+    public String getRandomCell() {
+        Random randomGenerator = new Random();
+        ArrayList<Integer> openCells = availableCellIndexes();
+        int index = randomGenerator.nextInt(openCells.size());
+        int randomCellIndex = openCells.get(index);
+        return cells[randomCellIndex];
     }
 
     private void getDiagonal(int cellIndex, int rowIndex, int incrementByNumber) {
@@ -65,7 +97,7 @@ public class Board {
         }
     }
 
-    private void getRows() {
+    private void getAllRows() {
       int cellIndex = 0;
       for (int rowIndex = 0; rowIndex < rows; rowIndex++)
         for (int colIndex = 0; colIndex < rows; colIndex++) {
@@ -87,6 +119,19 @@ public class Board {
             }
         }
         return false;
+    }
+    public boolean gameOver() {
+        if (winningGame("X") || winningGame("O")) {
+            return true;
+        } else if (!hasAvailableCell()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void removeMarker(int cellIndex) {
+        cells[cellIndex] = Integer.toString(cellIndex + 1);
     }
 
     private boolean isOpen(int cellIndex) {

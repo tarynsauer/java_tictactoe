@@ -73,8 +73,8 @@ public class Game {
 
     private Integer countMarker(String marker) {
         int markerCount = 0;
-        for (int i = 0; i < board.cells.length; i++) {
-            if (board.cells[i] == marker) {
+        for (int i = 0; i < board.getCells().length; i++) {
+            if (board.getCells()[i] == marker) {
                 markerCount += 1;
             }
         }

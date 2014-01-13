@@ -15,7 +15,7 @@ public class CLIBoard extends Board {
 
     public void printDivider() {
         String divider = "";
-        for (int cols = 1; cols <= rows; cols++) {
+        for (int cols = 1; cols <= getRows(); cols++) {
             divider += "------";
         }
         stream.print(divider + "\n");
@@ -23,15 +23,15 @@ public class CLIBoard extends Board {
 
     public void printBoardRow(int firstCellIndex) {
         String rowString = "";
-        int lastCellIndex = firstCellIndex + rows;
+        int lastCellIndex = firstCellIndex + getRows();
         for (int i = firstCellIndex; i < lastCellIndex; i++) {
-            rowString += "|  " + cells[i] + "  ";
+            rowString += "|  " + getCells()[i] + "  ";
         }
         stream.print(rowString + "|\n");
     }
 
     public void printBoard() {
-        for (int i = 0; i < (rows * rows); i += rows) {
+        for (int i = 0; i < (getRows() * getRows()); i += getRows()) {
             printBoardRow(i);
             printDivider();
         }

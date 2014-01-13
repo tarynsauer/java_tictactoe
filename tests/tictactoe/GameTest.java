@@ -25,21 +25,21 @@ public class GameTest {
 
     @Test
     public void testCurrentPlayerWhenPlayerTwoTurn() {
-      game.board.cells[0] = "X";
+      game.board.getCells()[0] = "X";
       Assert.assertEquals(game.playerTwo.getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test
     public void testCurrentPlayerWhenPlayerOneTurn() {
-      game.board.cells[0] = "O";
+      game.board.getCells()[0] = "O";
       Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test
     public void testCurrentPlayerWhenFirstPlayerTurn() {
       game.playerFirstMove = game.playerOne;
-      game.board.cells[1] = "X";
-      game.board.cells[0] = "O";
+      game.board.getCells()[1] = "X";
+      game.board.getCells()[0] = "O";
       Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
     }
 
@@ -51,31 +51,31 @@ public class GameTest {
 
     @Test
     public void testGameOverReturnsFalseForNonWinningNonTieGame() {
-        game.board.cells[0] = "X";
-        game.board.cells[1] = "O";
-        game.board.cells[2] = "X";
+        game.board.getCells()[0] = "X";
+        game.board.getCells()[1] = "O";
+        game.board.getCells()[2] = "X";
         assertFalse(game.gameOver());
     }
 
     @Test
     public void testGameOverReturnsTrueForWinningGame() {
-        game.board.cells[0] = "X";
-        game.board.cells[1] = "X";
-        game.board.cells[2] = "X";
+        game.board.getCells()[0] = "X";
+        game.board.getCells()[1] = "X";
+        game.board.getCells()[2] = "X";
         assertTrue(game.gameOver());
     }
 
     @Test
     public void testGameOverReturnsTrueForTieGame() {
-        game.board.cells[0] = "X";
-        game.board.cells[1] = "O";
-        game.board.cells[2] = "X";
-        game.board.cells[3] = "O";
-        game.board.cells[4] = "O";
-        game.board.cells[5] = "X";
-        game.board.cells[6] = "O";
-        game.board.cells[7] = "X";
-        game.board.cells[8] = "O";
+        game.board.getCells()[0] = "X";
+        game.board.getCells()[1] = "O";
+        game.board.getCells()[2] = "X";
+        game.board.getCells()[3] = "O";
+        game.board.getCells()[4] = "O";
+        game.board.getCells()[5] = "X";
+        game.board.getCells()[6] = "O";
+        game.board.getCells()[7] = "X";
+        game.board.getCells()[8] = "O";
         assertTrue(game.gameOver());
     }
 }

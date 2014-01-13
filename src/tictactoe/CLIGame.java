@@ -30,23 +30,25 @@ public class CLIGame extends Game {
         }));
     }
 
-//    public static void main(String [ ] args) {
-//
-//    }
-//
-//    public void startGame() {
-//        ui.firstMoveMessage(playerFirstMove.getMarker());
-//        board.printBoard();
-//        playGame();
-//    }
-//
-//    public void playGame() {
-//        while (!gameOver()) {
-//            Player player = currentPlayer();
-//            ui.nextMoveMessage(player.getMarker());
-//            int move = ui.getNextMove();
-//            player.addMarker(board, move);
-//            board.printBoard();
-//        }
-//    }
+    public static void main(String[] args) throws IOException {
+        CLIGame newGame = new CLIGame();
+        newGame.startGame();
+        newGame.playGame();
+    }
+
+    public void startGame() {
+        ui.firstMoveMessage(playerFirstMove.getMarker());
+        board.printBoard();
+        playGame();
+    }
+
+    public void playGame() {
+        while (!gameOver()) {
+            Player player = currentPlayer();
+            ui.nextMoveMessage(player.getMarker());
+            int move = ui.getNextMove();
+            player.addMarker(board, move);
+            board.printBoard();
+        }
+    }
 }
