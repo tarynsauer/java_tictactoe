@@ -27,4 +27,11 @@ public class HumanPlayerTest {
       assertEquals("[X, 2, 3, 4, 5, 6, 7, 8, 9]", actualResult);
     }
 
+    @Test
+    public void testSetOpponent() {
+        HumanPlayer playerO = new HumanPlayer("O");
+        player.setOpponent(playerO);
+        assertEquals(playerO, player.getOpponent());
+    }
+
 }

@@ -24,4 +24,8 @@ abstract class AbstractPlayer implements Player {
         int cellIndex = move - 1;
         board.getCells()[cellIndex] = this.marker;
     }
+
+    public void addTestMarker(Board board, int cellIndex) {
+        board.getCells()[cellIndex] = this.marker;
+    }
 }

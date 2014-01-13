@@ -7,7 +7,7 @@ public interface Player {
     public String getMarker();
     public Player getOpponent();
 
+    public void makeMove(Board board);
     void setOpponent(Player player);
-    void addMarker(Board board, int move);
-    void makeMove(Board board);
+    void addTestMarker(Board board, int cellID);
 }

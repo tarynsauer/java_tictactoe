@@ -29,12 +29,12 @@ public class AI {
     }
 
     public int getBestMove(Board board) {
-        HashMap<Integer, Integer> rankedMoves = rankPossibleMoves(board);
+        HashMap<Integer, Double> rankedMoves = rankPossibleMoves(board);
         int bestMove = 0;
-        int bestScore = NEG_INF;
-        for (Map.Entry<Integer, Integer> entry : rankedMoves.entrySet()) {
+        double bestScore = NEG_INF;
+        for (Map.Entry<Integer, Double> entry : rankedMoves.entrySet()) {
             int cellID = entry.getKey();
-            int score = entry.getValue();
+            double score = entry.getValue();
             if (score > bestScore) {
                 bestScore = score;
                 bestMove = cellID;
@@ -43,144 +43,61 @@ public class AI {
         return bestMove;
     }
 
-    private HashMap<Integer, Integer> rankPossibleMoves(Board board) {
-        HashMap rankedMoves = new HashMap<Integer, Integer>();
+    private HashMap<Integer, Double> rankPossibleMoves(Board board) {
+        HashMap rankedMoves = new HashMap<Integer, Double>();
         ArrayList<Integer> openCellsList = board.availableCellIndexes();
-        for(Iterator<Integer> i = openCellsList.iterator(); i.hasNext(); ) {
-            int cellIndex = i.next();
-            int score = getMoveScore(board, currentPlayer, cellIndex);
+        for(int cellIndex : openCellsList) {
+            double score = getMoveScore(board, currentPlayer, cellIndex);
             rankedMoves.put(cellIndex, score);
         }
+//        System.out.println(rankedMoves);
         return rankedMoves;
     }
 
-    private int getMoveScore(Board board, Player player, int cellID) {
-        int depth = 0;
-        player.addMarker(board, cellID);
-        int bestScore = applyMinimax(board, player, cellID, depth, NEG_INF, POS_INF);
+    private Double getMoveScore(Board board, Player player, int cellID) {
+        double depth = 0.0;
+        player.addTestMarker(board, cellID);
+        double bestScore = applyMinimax(board, player, depth);
         board.removeMarker(cellID);
+//        System.out.println(bestScore);
         return bestScore;
     }
 
-    private int getScore(Board board, Player player) {
-        if (board.winningGame(player.getMarker())) {
+    private int getScore(Board board) {
+        if (board.winningGame(currentPlayer.getMarker())) {
             return WIN;
-        } else if (board.winningGame(player.getOpponent().getMarker())) {
+        } else if (board.winningGame(currentPlayer.getOpponent().getMarker())) {
             return LOSE;
         }
         return TIE;
     }
 
-    private int applyMinimax(Board board, Player player, int cell, int depth, int alpha, int beta) {
-        while (!board.gameOver()) {
-            if (player == currentPlayer) {
-                MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
-                alphaBeta(board, maxPlayer, depth, alpha, beta);
-            } else {
-                MinimizingPlayer minPlayer = new MinimizingPlayer(player);
-                alphaBeta(board, minPlayer, depth, alpha, beta);
-            }
+    private double applyMinimax(Board board, Player player, double depth) {
+        if (board.gameOver()) {
+            return getScore(board);
         }
-        return getScore(board, player);
+
+        if (player.getMarker().equals(currentPlayer.getMarker())) {
+            ArrayList<Double> minimaxScores = minimax(board, player, depth);
+            double min = Collections.min(minimaxScores);
+            return min;
+        } else {
+            ArrayList<Double> minimaxScores = minimax(board, player, depth);
+            double max = Collections.max(minimaxScores);
+            return max;
+        }
     }
 
-    private int alphaBeta(Board board, AlphaBetaPlayer player, int depth, int alpha, int beta) {
-        ArrayList<Integer> openCellsList = board.availableCellIndexes();
-        for(Iterator<Integer> i = openCellsList.iterator(); i.hasNext(); ) {
-            int cellIndex = i.next();
-            player.getOpponent().addMarker(board, cellIndex);
-            int score = (applyMinimax(board, player.getOpponent(), cellIndex, depth++, alpha, beta) / depth);
-            alpha = player.getAlpha(alpha, score);
-            beta = player.getBeta(beta, score);
+    private ArrayList<Double> minimax(Board board, Player player, double depth) {
+        ArrayList<Double> bestScore = new ArrayList<Double>();
+        ArrayList<Integer> openCells = board.availableCellIndexes();
+        for (int cellIndex : openCells) {
+            player.getOpponent().addTestMarker(board, cellIndex);
+            double score = applyMinimax(board, player.getOpponent(), depth++) / depth;
             board.removeMarker(cellIndex);
+            bestScore.add(score);
         }
-        return player.returnBestScore(alpha, beta);
-    }
-
-    private interface AlphaBetaPlayer {
-        public Player getOpponent();
-        public String getMarker();
-
-        public int getAlpha(int alpha, int score);
-        public int getBeta(int beta, int score);
-        public int returnBestScore(int alpha, int beta);
-    }
-
-    private class MinimizingPlayer implements AlphaBetaPlayer {
-        private String marker;
-        private Player opponent;
-
-        private MinimizingPlayer(Player player) {
-            super();
-            String marker = player.getMarker();
-            Player opponent = player.getOpponent();
-        }
-
-        @Override
-        public Player getOpponent() {
-            return opponent;
-        }
-
-        @Override
-        public String getMarker() {
-            return marker;
-        }
-
-        @Override
-        public int getAlpha(int alpha, int score) {
-            if (score > alpha) {
-                return score;
-            } else {
-                return alpha;
-            }
-        }
-
-        @Override
-        public int getBeta(int beta, int score) {
-            return beta;
-        }
-
-        public int returnBestScore(int alpha, int beta) {
-            return alpha;
-        }
-
-    }
-
-    private class MaximizingPlayer implements AlphaBetaPlayer {
-        private String marker;
-        private Player opponent;
-
-        private MaximizingPlayer(Player player) {
-            super();
-            String marker = player.getMarker();
-            Player opponent = player.getOpponent();
-        }
-
-        @Override
-        public Player getOpponent() {
-            return opponent;
-        }
-
-        @Override
-        public String getMarker() {
-            return marker;
-        }
-
-        public int getBeta(int beta, int score) {
-            if (score < beta) {
-                return score;
-            } else {
-                return beta;
-            }
-        }
-
-        public int getAlpha(int alpha, int score) {
-            return alpha;
-        }
-
-        public int returnBestScore(int alpha, int beta) {
-            return beta;
-        }
+        return bestScore;
     }
 
 }
