@@ -18,7 +18,8 @@ public class CLIBoardTest {
         MockOutputStream outputStream = new MockOutputStream();
         printStream = new MockPrintStream(outputStream);
         printStream.setPrintCallHistory(new ArrayList<String>());
-        cliBoard = new CLIBoard(printStream);
+        cliBoard = new CLIBoard();
+        cliBoard.setPrintStream(printStream);
     }
 
     @Test

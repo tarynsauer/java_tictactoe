@@ -10,22 +10,42 @@ import java.io.PrintStream;
  * Created by Taryn on 1/6/14.
  */
 public class Game {
-    public Board board;
-    public Player playerOne;
-    public Player playerTwo;
-    public Player playerFirstMove;
-    public UI ui;
+    private Board board;
+    private Player playerOne;
+    private Player playerTwo;
+    private Player playerFirstMove;
+    private UI ui;
 
     public Game() {
         this.board = new Board();
         this.playerOne = new HumanPlayer("X");
         this.playerTwo = new HumanPlayer("O");
-        this.playerFirstMove = getPlayerFirstMove();
-        this.ui = new UI(new PrintStream(new OutputStream() {
-            @Override
-            public void write(int i) throws IOException {
-            }
-        }));
+        this.playerFirstMove = randomizePlayerFirstMove();
+        this.ui = new UI();
+    }
+
+    public Board getBoard() {
+        return this.board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public Player getPlayerOne() {
+        return this.playerOne;
+    }
+
+    public Player getPlayerTwo() {
+        return this.playerTwo;
+    }
+
+    public Player getPlayerFirstMove() {
+        return this.playerFirstMove;
+    }
+
+    public void setPlayerFirstMove(Player player) {
+        this.playerFirstMove = player;
     }
 
     public Player currentPlayer() {
@@ -40,7 +60,7 @@ public class Game {
         }
     }
 
-    public Player getPlayerFirstMove() {
+    public Player randomizePlayerFirstMove() {
         int rand = (Math.random() < 0.5) ? 0 : 1;
         if (rand == 0) {
           return playerOne;
@@ -60,11 +80,8 @@ public class Game {
 
     public boolean gameOver() {
         if (board.winningGame("X") || board.winningGame("O")) {
-            String winner = winningMarker();
-            ui.winningGameMessage(winner);
             return true;
         } else if (!board.hasAvailableCell()) {
-            ui.tieGameMessage();
            return true;
         } else {
            return false;
@@ -74,7 +91,7 @@ public class Game {
     private Integer countMarker(String marker) {
         int markerCount = 0;
         for (int i = 0; i < board.getCells().length; i++) {
-            if (board.getCells()[i] == marker) {
+            if (board.getCells()[i].equals(marker)) {
                 markerCount += 1;
             }
         }

@@ -7,9 +7,12 @@ import java.io.PrintStream;
  */
 public class CLIBoard extends Board {
 
-    private PrintStream stream;
+    public CLIBoard() {
+    }
 
-    public CLIBoard(PrintStream stream) {
+    PrintStream stream = System.out;
+
+    public void setPrintStream(PrintStream stream) {
         this.stream = stream;
     }
 

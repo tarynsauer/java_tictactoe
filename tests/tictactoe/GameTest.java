@@ -8,7 +8,6 @@ import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertEquals;
 
 /**
 * Created by Taryn on 1/6/14.
@@ -20,62 +19,65 @@ public class GameTest {
     @Before
     public void setUp() throws Exception {
       game = new Game();
-      game.board = new Board();
+      game.setBoard(new Board());
     }
 
     @Test
     public void testCurrentPlayerWhenPlayerTwoTurn() {
-      game.board.getCells()[0] = "X";
-      Assert.assertEquals(game.playerTwo.getMarker(), game.currentPlayer().getMarker());
+      game.getBoard().getCells()[0] = "X";
+      Assert.assertEquals("O", game.currentPlayer().getMarker());
     }
 
     @Test
     public void testCurrentPlayerWhenPlayerOneTurn() {
-      game.board.getCells()[0] = "O";
-      Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
+      game.getBoard().getCells()[0] = "O";
+      Assert.assertEquals("X", game.currentPlayer().getMarker());
     }
 
     @Test
     public void testCurrentPlayerWhenFirstPlayerTurn() {
-      game.playerFirstMove = game.playerOne;
-      game.board.getCells()[1] = "X";
-      game.board.getCells()[0] = "O";
-      Assert.assertEquals(game.playerOne.getMarker(), game.currentPlayer().getMarker());
+      game.setPlayerFirstMove(game.getPlayerOne());
+      game.getBoard().getCells()[1] = "X";
+      game.getBoard().getCells()[0] = "O";
+      Assert.assertEquals(game.getPlayerFirstMove().getMarker(), game.currentPlayer().getMarker());
     }
 
     @Test
-    public void testPlayerFirstMove() {
-        Player player = game.getPlayerFirstMove();
+    public void testCurrentPlayerWithThreeMarkersOnBoard() {
+        game.setPlayerFirstMove(game.getPlayerOne());
+        game.getBoard().getCells()[1] = "X";
+        game.getBoard().getCells()[0] = "O";
+        game.getBoard().getCells()[2] = "O";
+        Assert.assertEquals("X", game.currentPlayer().getMarker());
+    }
+
+    @Test
+    public void testRandomizePlayerFirstMove() {
+        Player player = game.randomizePlayerFirstMove();
         assertThat(player, instanceOf(Player.class));
     }
 
     @Test
     public void testGameOverReturnsFalseForNonWinningNonTieGame() {
-        game.board.getCells()[0] = "X";
-        game.board.getCells()[1] = "O";
-        game.board.getCells()[2] = "X";
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "4", "5", "6",
+                                              "7", "8", "9"});
         assertFalse(game.gameOver());
     }
 
     @Test
     public void testGameOverReturnsTrueForWinningGame() {
-        game.board.getCells()[0] = "X";
-        game.board.getCells()[1] = "X";
-        game.board.getCells()[2] = "X";
+        game.getBoard().setCells(new String[]{"X", "X", "X",
+                                              "4", "5", "6",
+                                              "7", "8", "9"});
         assertTrue(game.gameOver());
     }
 
     @Test
     public void testGameOverReturnsTrueForTieGame() {
-        game.board.getCells()[0] = "X";
-        game.board.getCells()[1] = "O";
-        game.board.getCells()[2] = "X";
-        game.board.getCells()[3] = "O";
-        game.board.getCells()[4] = "O";
-        game.board.getCells()[5] = "X";
-        game.board.getCells()[6] = "O";
-        game.board.getCells()[7] = "X";
-        game.board.getCells()[8] = "O";
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "O", "O", "X",
+                                              "O", "X", "O"});
         assertTrue(game.gameOver());
     }
 }

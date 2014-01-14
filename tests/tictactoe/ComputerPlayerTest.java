@@ -2,10 +2,7 @@ package tictactoe;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Arrays;
-
-import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -29,15 +26,17 @@ public class ComputerPlayerTest {
 
     @Test
     public void testAddMarkerPlacesPlayerMarkerOnBoard() {
-        player.addMarker(board, 2);
+        player.addMarker(board, "2");
         String actualResult = Arrays.deepToString(board.getCells());
         assertEquals("[1, X, 3, 4, 5, 6, 7, 8, 9]", actualResult);
     }
 
     @Test
     public void testMakeMoveAddsAPlayerMarkerToBoard() {
-        player.makeMove(board);
-        assertTrue(Arrays.asList(board.getCells()).contains("X"));
+        board.setCells(new String[]{"X", "O", "X",
+                                    "X", "O", "O",
+                                    "O", "8", "X"});
+        assertEquals("8", player.makeMove(board));
     }
 
 }

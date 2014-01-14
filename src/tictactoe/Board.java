@@ -34,8 +34,8 @@ public class Board {
     }
 
     public boolean hasAvailableCell() {
-      for (int i = 0; i < cells.length; i++) {
-        if ((!(cells[i] == "X") && !(cells[i] == "O")))
+      for(String cellValue : cells) {
+        if ((!(cellValue.equals("X")) && !(cellValue.equals("O"))))
            return true;
         }
       return false;
@@ -44,7 +44,7 @@ public class Board {
     public ArrayList<Integer> availableCellIndexes() {
         ArrayList<Integer> openCellIndexes = new ArrayList<Integer>();
         for (int i = 0; i < cells.length; i++) {
-            if ((!(cells[i] == "X") && !(cells[i] == "O")))
+            if ((!(cells[i].equals("X")) && !(cells[i].equals("O"))))
                 openCellIndexes.add(i);
         }
         return openCellIndexes;
@@ -52,11 +52,7 @@ public class Board {
 
     public boolean isValidCell(int cellIndex) {
       int totalCellsCount = rows * rows;
-      if ((cellIndex > 0) && (cellIndex < totalCellsCount) && isOpen(cellIndex)) {
-        return true;
-      } else {
-        return false;
-      }
+        return (cellIndex > 0) && (cellIndex < totalCellsCount) && isOpen(cellIndex);
     }
 
     public int[][] getWinningLines() {
@@ -121,13 +117,7 @@ public class Board {
         return false;
     }
     public boolean gameOver() {
-        if (winningGame("X") || winningGame("O")) {
-            return true;
-        } else if (!hasAvailableCell()) {
-            return true;
-        } else {
-            return false;
-        }
+        return (winningGame("X") || winningGame("O")) || !hasAvailableCell();
     }
 
     public void removeMarker(int cellIndex) {
@@ -135,11 +125,7 @@ public class Board {
     }
 
     private boolean isOpen(int cellIndex) {
-       if ((!(cells[cellIndex] == "X") && !(cells[cellIndex] == "O"))) {
-            return true;
-        } else {
-            return false;
-        }
+        return (!(cells[cellIndex].equals("X")) && !(cells[cellIndex].equals("O")));
     }
 
 }

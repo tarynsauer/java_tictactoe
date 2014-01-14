@@ -10,10 +10,10 @@ public class AIPlayer extends AbstractPlayer {
     }
 
     @Override
-    public void makeMove(Board board) {
+    public String makeMove(Board board) {
         AI ai = new AI(this);
-        int move = ai.getAIMove(board);
-        addMarker(board, move);
+        int cellID = ai.getAIMove(board);
+        return board.getCells()[cellID];
     }
 
 }

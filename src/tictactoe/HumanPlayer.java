@@ -9,7 +9,4 @@ public class HumanPlayer extends AbstractPlayer {
         super(marker);
     }
 
-    public void makeMove(Board board) {
-    }
-
 }

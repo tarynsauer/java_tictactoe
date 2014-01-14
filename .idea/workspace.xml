@@ -2,12 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82a52c95-cd1d-44e1-975e-81daee0b8d22" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/tictactoe/AITest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/tictactoe/AIPlayerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tictactoe/AbstractAlphaBeta.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tictactoe/MaximizingPlayer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tictactoe/MinimizingPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tictactoe/tictactoe/Game.class" afterPath="$PROJECT_DIR$/out/production/tictactoe/tictactoe/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/tictactoe/tictactoe/GameTest.class" afterPath="$PROJECT_DIR$/out/test/tictactoe/tictactoe/GameTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/AI.java" afterPath="$PROJECT_DIR$/src/tictactoe/AI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/AIPlayer.java" afterPath="$PROJECT_DIR$/src/tictactoe/AIPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/AITest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/AITest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java" afterPath="$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/Board.java" afterPath="$PROJECT_DIR$/src/tictactoe/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/BoardTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/BoardTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/CLIBoard.java" afterPath="$PROJECT_DIR$/src/tictactoe/CLIBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/CLIGame.java" afterPath="$PROJECT_DIR$/src/tictactoe/CLIGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java" afterPath="$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/Game.java" afterPath="$PROJECT_DIR$/src/tictactoe/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/GameTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/GameTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/HumanPlayer.java" afterPath="$PROJECT_DIR$/src/tictactoe/HumanPlayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/HumanPlayerTest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/HumanPlayerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/MockPrintStream.java" afterPath="$PROJECT_DIR$/src/tictactoe/MockPrintStream.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/Player.java" afterPath="$PROJECT_DIR$/src/tictactoe/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tictactoe/UI.java" afterPath="$PROJECT_DIR$/src/tictactoe/UI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tictactoe/UITest.java" afterPath="$PROJECT_DIR$/tests/tictactoe/UITest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tictactoe.iws" />
@@ -72,19 +92,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HumanPlayer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tictactoe/HumanPlayer.java">
+      <file leaf-file-name="GameTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/tictactoe/GameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="12" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AITest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/tictactoe/AITest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="0.34155598" vertical-offset="195" max-vertical-offset="2490">
+            <state line="63" column="46" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1335">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,40 +103,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AIPlayer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tictactoe/AIPlayer.java">
+      <file leaf-file-name="BoardTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tictactoe/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractPlayer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tictactoe/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="11" selection-start="887" selection-end="905" vertical-scroll-proportion="-12.307693" vertical-offset="235" max-vertical-offset="2175">
+            <state line="143" column="48" selection-start="4346" selection-end="4346" vertical-scroll-proportion="0.0" vertical-offset="1884" max-vertical-offset="2430">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#989#998#0" expanded="true" />
+                <element signature="e#1601#1610#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CLIGame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/CLIGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="35" selection-start="1027" selection-end="1034" vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="975">
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,11 +129,60 @@
       <file leaf-file-name="AI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tictactoe/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="60" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-36.923077" vertical-offset="150" max-vertical-offset="1635">
+            <state line="8" column="31" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="1545">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3003#3011#0" expanded="true" />
+                <element signature="e#1305#1322#0" expanded="true" />
+                <element signature="e#2802#2810#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractAlphaBeta.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/AbstractAlphaBeta.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="26" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <folding>
+                <element signature="e#365#366#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinimizingPlayer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/MinimizingPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaximizingPlayer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/MaximizingPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="4" selection-start="194" selection-end="194" vertical-scroll-proportion="0.28680688" vertical-offset="0" max-vertical-offset="523">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HumanPlayer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tictactoe/HumanPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,40 +200,42 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/tictactoe/MockPrintStream.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/GameSetup.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/tictactoe/CLIBoard.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/tictactoe/CLIBoardTest.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MockOutputStream.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MockBufferedReader.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/UITest.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MockBoard.java" />
         <option value="$PROJECT_DIR$/src/CLIMockBoard.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/CLIGameWrapper.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/UI.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/GamePlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/HumanPlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/Game.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/CLIBoard.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/GameTest.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/BoardTest.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/Board.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/AlphaBetaPlayerTest.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/AITest.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/AIPlayerTest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/MockPrintStream.java" />
         <option value="$PROJECT_DIR$/tests/tictactoe/HumanPlayerTest.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/AI.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/UITest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/Game.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/CLIGame.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/CLIBoard.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/UI.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/Board.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/BoardTest.java" />
+        <option value="$PROJECT_DIR$/tests/tictactoe/GameTest.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/AlphaBetaPlayer.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/AbstractAlphaBeta.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/HumanPlayer.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/Player.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/AIPlayer.java" />
+        <option value="$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MinimizingPlayer.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/MaximizingPlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/AIPlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/AlphaBetaPlayer.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/Player.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/CLIGame.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/AlphaBetaPlayerTest.java" />
-        <option value="$PROJECT_DIR$/src/tictactoe/AI.java" />
-        <option value="$PROJECT_DIR$/tests/tictactoe/AITest.java" />
       </list>
     </option>
   </component>
@@ -296,6 +342,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tictactoe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tictactoe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -327,6 +387,13 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="SearchEverywhereHistory" value="" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="tictactoe" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -340,7 +407,7 @@
       <recent name="tictactoe" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AITest">
+  <component name="RunManager" selected="JUnit.tictactoe in tictactoe">
     <configuration default="false" name="CLIGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tictactoe.CLIGame" />
       <option name="VM_PARAMETERS" />
@@ -391,14 +458,14 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="AITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="tictactoe in tictactoe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="tictactoe.AITest" />
+      <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -593,17 +660,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.CLIGame" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.GameTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AITest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.tictactoe in tictactoe" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest.testAddMarker" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AITest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.CLIGame" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest.testAddMarker" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GameTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.tictactoe in tictactoe" />
+        <item index="1" class="java.lang.String" itemvalue="Application.CLIGame" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GameTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HumanPlayerTest.testAddMarker" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -663,7 +730,11 @@
       <created>1389588853884</created>
       <updated>1389588853884</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Remove AlphaBeta&#10;">
+      <created>1389643302745</created>
+      <updated>1389643302745</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -677,7 +748,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29048207" sideWeight="0.11629526" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29542646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -687,7 +758,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21100278" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31396785" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29048207" sideWeight="0.8837047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -704,20 +775,20 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29542646" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15041783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45611867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21100278" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41161928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -739,7 +810,8 @@
     <MESSAGE value="Add Game win logic" />
     <MESSAGE value="Remove unnecessary mocks&#10;" />
     <MESSAGE value="Add AI minimax functionality&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add AI minimax functionality&#10;" />
+    <MESSAGE value="Remove AlphaBeta&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove AlphaBeta&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -752,7 +824,9 @@
     <entry file="file://$PROJECT_DIR$/src/tictactoe/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="0" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -769,7 +843,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="12" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="525">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -777,7 +851,12 @@
     <entry file="file://$PROJECT_DIR$/src/tictactoe/UI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="26" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="765">
-          <folding />
+          <folding>
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -793,7 +872,7 @@
         <state line="63" column="5" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1515">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1789#1798#0" expanded="true" />
+            <element signature="e#1601#1610#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,7 +882,7 @@
         <state line="7" column="16" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1590">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#989#998#0" expanded="true" />
+            <element signature="e#992#1001#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -811,7 +890,9 @@
     <entry file="file://$PROJECT_DIR$/src/tictactoe/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="9" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -819,16 +900,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="218" selection-end="288" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="390">
           <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -837,14 +909,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="56" selection-start="260" selection-end="260" vertical-scroll-proportion="0.30726257" vertical-offset="0" max-vertical-offset="537">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/AIPlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="5" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="555">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/AITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="8" selection-start="751" selection-end="897" vertical-scroll-proportion="0.68311197" vertical-offset="105" max-vertical-offset="2460">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="34" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/HumanPlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="33" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/tictactoe/MockPrintStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="1" selection-start="741" selection-end="741" vertical-scroll-proportion="-11.4" vertical-offset="0" max-vertical-offset="375">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/MockPrintStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="39" selection-start="669" selection-end="690" vertical-scroll-proportion="0.87053573" vertical-offset="0" max-vertical-offset="705">
+        <state line="27" column="18" selection-start="668" selection-end="689" vertical-scroll-proportion="0.42307693" vertical-offset="144" max-vertical-offset="690">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -853,151 +968,172 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="84" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/CLIBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="46" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/GameTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="29" selection-start="2277" selection-end="2277" vertical-scroll-proportion="0.0" vertical-offset="427" max-vertical-offset="1185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/UITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="6" selection-start="658" selection-end="731" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/ComputerPlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="31" selection-start="954" selection-end="954" vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="735">
+        <state line="29" column="0" selection-start="752" selection-end="752" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="795">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="39" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="2640">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1789#1798#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="298" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/HumanPlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="31" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="645">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/HumanPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="12" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/CLIGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="847" selection-end="1177" vertical-scroll-proportion="0.74285716" vertical-offset="142" max-vertical-offset="900">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="11" selection-start="887" selection-end="905" vertical-scroll-proportion="-12.307693" vertical-offset="235" max-vertical-offset="2175">
+        <state line="119" column="77" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.48757172" vertical-offset="1440" max-vertical-offset="1965">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#989#998#0" expanded="true" />
+            <element signature="e#992#1001#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/CLIGameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="647" selection-end="647" vertical-scroll-proportion="0.6596558" vertical-offset="0" max-vertical-offset="900">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/CLIBoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="7" selection-start="27" selection-end="27" vertical-scroll-proportion="-0.37898687" vertical-offset="232" max-vertical-offset="765">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/CLIBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="157" selection-end="157" vertical-scroll-proportion="0.3021978" vertical-offset="0" max-vertical-offset="735">
+          <folding>
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/UITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="9" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.3956044" vertical-offset="354" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MockOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="52" selection-start="197" selection-end="197" vertical-scroll-proportion="0.16483517" vertical-offset="0" max-vertical-offset="546">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="48" selection-start="4346" selection-end="4346" vertical-scroll-proportion="0.0" vertical-offset="1884" max-vertical-offset="2430">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1601#1610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/CLIGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="35" selection-start="1027" selection-end="1034" vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="975">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/tictactoe/GameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="46" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1335">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="27" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="879" max-vertical-offset="1425">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/AbstractAlphaBeta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="26" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <folding>
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/HumanPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/AbstractPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="5" selection-start="807" selection-end="807" vertical-scroll-proportion="0.8030593" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/ComputerPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="5" selection-start="184" selection-end="184" vertical-scroll-proportion="0.2581262" vertical-offset="0" max-vertical-offset="523">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/AIPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+        <state line="17" column="0" selection-start="350" selection-end="350" vertical-scroll-proportion="0.48757172" vertical-offset="0" max-vertical-offset="523">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tictactoe/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="60" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-36.923077" vertical-offset="150" max-vertical-offset="1635">
+        <state line="8" column="31" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="1545">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3003#3011#0" expanded="true" />
+            <element signature="e#1305#1322#0" expanded="true" />
+            <element signature="e#2802#2810#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tictactoe/AITest.java">
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MinimizingPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="0.34155598" vertical-offset="195" max-vertical-offset="2490">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="11" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/MaximizingPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="194" selection-end="194" vertical-scroll-proportion="0.28680688" vertical-offset="0" max-vertical-offset="523">
+          <folding />
         </state>
       </provider>
     </entry>

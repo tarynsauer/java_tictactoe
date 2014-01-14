@@ -1,23 +1,22 @@
 package tictactoe;
 
-abstract class AbstractPlayer implements Player {
+abstract class AbstractAlphaBeta implements Player {
     private String marker;
     private Player opponent;
+
+    public AbstractAlphaBeta(Player player) {
+        this.marker = player.getMarker();
+        this.opponent = player.getOpponent();
+    }
 
     public String getMarker() {
         return marker;
     }
 
-    public Player getOpponent() {
-        return opponent;
-    }
+    public Player getOpponent() { return opponent; }
 
     public void setOpponent(Player player) {
         this.opponent = player;
-    }
-
-    public AbstractPlayer(String marker) {
-        this.marker = marker;
     }
 
     public void addMarker(Board board, String move) {
@@ -29,8 +28,11 @@ abstract class AbstractPlayer implements Player {
         board.getCells()[cellIndex] = this.marker;
     }
 
-    public String makeMove(Board board) {
-        UI ui = new UI();
-        return ui.getNextMove();
+    public int getAlpha(int alpha, int score) {
+        return alpha;
+    }
+
+    public int getBeta(int beta, int score) {
+        return beta;
     }
 }

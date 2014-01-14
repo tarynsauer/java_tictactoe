@@ -3,7 +3,7 @@ package tictactoe;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import java.util.ArrayList;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
 
@@ -16,17 +16,39 @@ public class CLIGameTest {
 
     @Before
     public void setUp() throws Exception {
-        game = new CLIGame();
         MockOutputStream outputStream = new MockOutputStream();
         printStream = new MockPrintStream(outputStream);
-        game.board = new CLIBoard(printStream);
+        printStream.setPrintCallHistory(new ArrayList<String>());
+        UI ui = new UI();
+        ui.setPrintStream(printStream);
+        game = new CLIGame();
+        game.setUI(ui);
     }
-//    @Test
-//    public void testStartGame() throws Exception {
-//        game.board.cells[0] = "X";
-//        game.board.cells[1] = "X";
-//        game.board.cells[2] = "X";
-//        game.startGame();
-//        assertThat(printStream.getPrintCallHistory(), containsString("goes first."));
-//    }
+
+    @Test
+    public void gameOutcomePrintsPlayerOWinsMessage() throws Exception {
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "X", "O", "X",
+                                              "O", "O", "9"});
+        game.gameOutcome();
+        assertThat(printStream.getPrintCallHistory(), containsString("Game over! Player 'O' wins!"));
+    }
+
+    @Test
+    public void gameOutcomePrintsPlayerXWinsMessage() throws Exception {
+        game.getBoard().setCells(new String[]{"1", "O", "O",
+                                              "X", "X", "X",
+                                              "O", "8", "9"});
+        game.gameOutcome();
+        assertThat(printStream.getPrintCallHistory(), containsString("Game over! Player 'X' wins!"));
+    }
+
+    @Test
+    public void gameOutcomePrintsTieGameMessage() throws Exception {
+        game.getBoard().setCells(new String[]{"X", "O", "O",
+                                              "O", "X", "X",
+                                              "O", "X", "O"});
+        game.gameOutcome();
+        assertThat(printStream.getPrintCallHistory(), containsString("Game over! It's a tie!"));
+    }
 }

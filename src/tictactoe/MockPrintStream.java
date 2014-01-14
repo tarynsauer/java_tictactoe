@@ -2,7 +2,6 @@ package tictactoe;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
-
 import java.util.ArrayList;
 /**
  * Created by Taryn on 1/8/14.

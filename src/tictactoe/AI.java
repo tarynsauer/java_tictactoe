@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Iterator;
 
 /**
  * Created by Taryn on 1/11/14.
@@ -24,12 +23,11 @@ public class AI {
     public int getAIMove(Board board) {
         Board testBoard = new Board();
         testBoard.setCells(board.getCells());
-        int cellIndex = getBestMove(testBoard);
-        return cellIndex;
+        return getBestMove(testBoard);
     }
 
     public int getBestMove(Board board) {
-        HashMap<Integer, Double> rankedMoves = rankPossibleMoves(board);
+        Map<Integer, Double> rankedMoves = rankPossibleMoves(board);
         int bestMove = 0;
         double bestScore = NEG_INF;
         for (Map.Entry<Integer, Double> entry : rankedMoves.entrySet()) {
@@ -43,14 +41,13 @@ public class AI {
         return bestMove;
     }
 
-    private HashMap<Integer, Double> rankPossibleMoves(Board board) {
-        HashMap rankedMoves = new HashMap<Integer, Double>();
+    private Map<Integer, Double> rankPossibleMoves(Board board) {
+        Map<Integer, Double> rankedMoves = new HashMap<Integer, Double>();
         ArrayList<Integer> openCellsList = board.availableCellIndexes();
         for(int cellIndex : openCellsList) {
             double score = getMoveScore(board, currentPlayer, cellIndex);
             rankedMoves.put(cellIndex, score);
         }
-//        System.out.println(rankedMoves);
         return rankedMoves;
     }
 
@@ -59,7 +56,6 @@ public class AI {
         player.addTestMarker(board, cellID);
         double bestScore = applyMinimax(board, player, depth);
         board.removeMarker(cellID);
-//        System.out.println(bestScore);
         return bestScore;
     }
 
@@ -79,12 +75,10 @@ public class AI {
 
         if (player.getMarker().equals(currentPlayer.getMarker())) {
             ArrayList<Double> minimaxScores = minimax(board, player, depth);
-            double min = Collections.min(minimaxScores);
-            return min;
+            return Collections.min(minimaxScores);
         } else {
             ArrayList<Double> minimaxScores = minimax(board, player, depth);
-            double max = Collections.max(minimaxScores);
-            return max;
+            return Collections.max(minimaxScores);
         }
     }
 

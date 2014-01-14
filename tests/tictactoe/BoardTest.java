@@ -38,32 +38,24 @@ public class BoardTest {
 
     @Test
     public void testGetRandomCellDoesNotReturnUnavailableCell() {
-        String cellID = board.getRandomCell();
         board.getCells()[0] = "X";
-        assertThat(cellID, not("1"));
+        String move = board.getRandomCell();
+        assertThat(move, not("1"));
     }
 
     @Test
     public void testGetRandomCellReturnsTheOnlyOpenCell() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "O";
-        board.getCells()[2] = "X";
-        board.getCells()[3] = "X";
-        board.getCells()[4] = "O";
-        board.getCells()[5] = "X";
-        board.getCells()[6] = "O";
-        board.getCells()[7] = "O";
-        String cellID = board.getRandomCell();
-        assertEquals("9", cellID);
+        board.setCells(new String[]{"X", "O", "X",
+                                    "X", "O", "X",
+                                    "O", "X", "9"});
+        String move = board.getRandomCell();
+        assertEquals("9", move);
     }
     @Test
     public void testAvailableCellIndexes() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "O";
-        board.getCells()[2] = "X";
-        board.getCells()[3] = "X";
-        board.getCells()[4] = "O";
-        board.getCells()[5] = "X";
+        board.setCells(new String[]{"X", "O", "X",
+                                    "X", "O", "X",
+                                    "7", "8", "9"});
         ArrayList<Integer> expectedOutput = new ArrayList<Integer>();
         expectedOutput.add(6);
         expectedOutput.add(7);
@@ -109,55 +101,49 @@ public class BoardTest {
 
     @Test
     public void testWinningGameReturnsTrueForWinningGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "X";
-        board.getCells()[2] = "X";
+        board.setCells(new String[]{"X", "X", "X",
+                                    "4", "5", "6",
+                                    "7", "8", "9"});
         assertTrue(board.winningGame("X"));
     }
 
     @Test
     public void testWinningGameReturnsTrueForDiagonalWinningGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[4] = "X";
-        board.getCells()[8] = "X";
+        board.setCells(new String[]{"X", "2", "3",
+                                    "4", "X", "6",
+                                    "7", "8", "X"});
         assertTrue(board.winningGame("X"));
     }
 
     @Test
     public void testWinningGameReturnsFalseForNonWinningGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "O";
-        board.getCells()[2] = "X";
+        board.setCells(new String[]{"X", "O", "X",
+                                    "4", "5", "6",
+                                    "7", "8", "9"});
         assertFalse(board.winningGame("X"));
     }
 
     @Test
     public void testGameOverReturnsTrueForWinningGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "X";
-        board.getCells()[2] = "X";
+        board.setCells(new String[]{"X", "X", "X",
+                                    "4", "5", "6",
+                                    "7", "8", "9"});
         assertTrue(board.gameOver());
     }
 
     @Test
     public void testGameOverReturnsFalseForOngoingGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "O";
-        board.getCells()[2] = "X";
+        board.setCells(new String[]{"X", "O", "X",
+                                    "4", "5", "6",
+                                    "7", "8", "9"});
         assertFalse(board.gameOver());
     }
 
     @Test
     public void testGameOverReturnsTrueForTieGame() {
-        board.getCells()[0] = "X";
-        board.getCells()[1] = "O";
-        board.getCells()[2] = "O";
-        board.getCells()[3] = "O";
-        board.getCells()[4] = "X";
-        board.getCells()[5] = "X";
-        board.getCells()[6] = "O";
-        board.getCells()[7] = "X";
-        board.getCells()[8] = "O";
+        board.setCells(new String[]{"X", "O", "X",
+                                    "O", "X", "X",
+                                    "O", "X", "O"});
         assertTrue(board.gameOver());
     }
 
