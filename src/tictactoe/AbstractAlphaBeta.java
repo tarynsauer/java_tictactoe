@@ -40,4 +40,8 @@ abstract class AbstractAlphaBeta implements Player {
         return alpha;
     }
 
+    public String makeMove(Board board) {
+        return null;
+    }
+
 }

@@ -49,7 +49,7 @@ public class Board {
     public ArrayList<Integer> availableCellIndexes() {
         ArrayList<Integer> openCellIndexes = new ArrayList<Integer>();
         for (int i = 0; i < cells.length; i++) {
-            if ((!(cells[i].equals("X")) && !(cells[i].equals("O"))))
+            if ((!(cellValue(i).equals("X")) && !(cellValue(i).equals("O"))))
                 openCellIndexes.add(i);
         }
         return openCellIndexes;
@@ -132,7 +132,11 @@ public class Board {
     }
 
     private boolean isOpen(int cellIndex) {
-        return (!(cells[cellIndex].equals("X")) && !(cells[cellIndex].equals("O")));
+        return (!(cellValue(cellIndex).equals("X")) && !(cellValue(cellIndex).equals("O")));
+    }
+
+    private String cellValue(int cellIndex) {
+        return cells[cellIndex];
     }
 
 }

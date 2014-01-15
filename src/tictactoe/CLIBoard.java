@@ -29,7 +29,12 @@ public class CLIBoard extends Board {
         String rowString = "";
         int lastCellIndex = firstCellIndex + getRows();
         for (int i = firstCellIndex; i < lastCellIndex; i++) {
-            rowString += "|  " + getCells()[i] + "  ";
+            int numLength = Integer.toString(i + 1).length();
+            if ((numLength == 1) || filledCell(i)) {
+                rowString += "|  " + getCells()[i] + "  ";
+            } else {
+                rowString += "|  " + getCells()[i] + " ";
+            }
         }
         stream.print(rowString + "|\n");
     }
@@ -39,6 +44,10 @@ public class CLIBoard extends Board {
             printBoardRow(i);
             printDivider();
         }
+    }
+
+    private boolean filledCell(int cellIndex) {
+        return (getCells()[cellIndex].equals("X") || getCells()[cellIndex].equals("O"));
     }
 
 }

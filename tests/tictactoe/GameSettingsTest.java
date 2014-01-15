@@ -4,16 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.ArrayList;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
 /**
  * Created by Taryn on 1/14/14.
@@ -57,31 +51,13 @@ public class GameSettingsTest {
         assertThat(gameSettings.returnPlayer("X"), is((HumanPlayer.class)));
     }
 
-//    @Test
-//    public void testValidatePlayerTypePrintsBadInputMessageWithInvalidTypeString() throws Exception {
-//        gameSettings.validatePlayerType("invalid", "X");
-//        inputArray.add("human");
-//        bufferedReader.setInputHistory(inputArray);
-//        assertEquals(printStream.lastPrintCall(), "test");
-//    }
-//
-//    @Test
-//    public void testValidateDifficultyLevel() throws Exception {
-//
-//    }
-
     @Test
     public void testGetComputerDifficultyReturnsValidDifficultyValue() throws Exception {
         inputArray.add("easy");
         bufferedReader.setInputHistory(inputArray);
         assertEquals(gameSettings.getComputerDifficulty("X"), "easy");
     }
-//
-//    @Test
-//    public void testValidateBoardSize() throws Exception {
-//
-//    }
-//
+
     @Test
     public void testReturnBoardSizeReturnsValidBoardSize() throws Exception {
         inputArray.add("3");
@@ -89,4 +65,5 @@ public class GameSettingsTest {
         gameSettings.returnBoardSize();
         assertEquals(gameSettings.getBoardSize(), 3);
     }
+
 }

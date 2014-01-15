@@ -20,8 +20,4 @@ public class MaximizingPlayer extends AbstractAlphaBeta {
     public double returnBestScore(double alpha, double beta) {
         return beta;
     }
-
-    public String makeMove(Board board) {
-        return null;
-    }
 }

@@ -17,8 +17,4 @@ public class MinimizingPlayer extends AbstractAlphaBeta {
         }
     }
 
-    @Override
-    public String makeMove(Board board) {
-        return null;
-    }
 }
