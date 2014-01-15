@@ -67,7 +67,7 @@ public class UITest {
 
     @Test
     public void testInvalidBoardSizeMessage() {
-        ui.invalidBoardSizeMessage(8);
+        ui.invalidBoardSizeMessage("8");
         assertEquals("ERROR: '8' is not a valid board size.", printStream.lastPrintCall());
     }
 

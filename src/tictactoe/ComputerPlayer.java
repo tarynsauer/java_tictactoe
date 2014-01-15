@@ -9,7 +9,6 @@ public class ComputerPlayer extends AbstractPlayer {
         super(marker);
     }
 
-    @Override
     public String makeMove(Board board) {
       return board.getRandomCell();
     }

@@ -1,7 +1,6 @@
 package tictactoe;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,15 +12,15 @@ public class AI {
     private static final int WIN = 1;
     private static final int LOSE = -1;
     private static final int TIE = 0;
-    private static final int NEG_INF = -999;
-    private static final int POS_INF = 999;
+    private static final double NEG_INF = -999;
+    private static final double POS_INF = 999;
 
     public AI(AIPlayer currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 
     public int getAIMove(Board board) {
-        Board testBoard = new Board();
+        Board testBoard = new Board(3);
         testBoard.setCells(board.getCells());
         return getBestMove(testBoard);
     }
@@ -52,9 +51,8 @@ public class AI {
     }
 
     private Double getMoveScore(Board board, Player player, int cellID) {
-        double depth = 0.0;
         player.addTestMarker(board, cellID);
-        double bestScore = applyMinimax(board, player, depth);
+        double bestScore = applyMinimax(board, player, 0.0, NEG_INF, POS_INF);
         board.removeMarker(cellID);
         return bestScore;
     }
@@ -68,30 +66,34 @@ public class AI {
         return TIE;
     }
 
-    private double applyMinimax(Board board, Player player, double depth) {
-        if (board.gameOver()) {
-            return getScore(board);
-        }
-
-        if (player.getMarker().equals(currentPlayer.getMarker())) {
-            ArrayList<Double> minimaxScores = minimax(board, player, depth);
-            return Collections.min(minimaxScores);
-        } else {
-            ArrayList<Double> minimaxScores = minimax(board, player, depth);
-            return Collections.max(minimaxScores);
-        }
-    }
-
-    private ArrayList<Double> minimax(Board board, Player player, double depth) {
-        ArrayList<Double> bestScore = new ArrayList<Double>();
+    private double alphabeta(Board board, AbstractAlphaBeta player, double depth, double alpha, double beta) {
         ArrayList<Integer> openCells = board.availableCellIndexes();
         for (int cellIndex : openCells) {
             player.getOpponent().addTestMarker(board, cellIndex);
-            double score = applyMinimax(board, player.getOpponent(), depth++) / depth;
+            double score = applyMinimax(board, player.getOpponent(), depth++, alpha, beta) / depth;
+            alpha = player.getAlpha(alpha, score);
+            beta = player.getBeta(beta, score);
             board.removeMarker(cellIndex);
-            bestScore.add(score);
+            if (alpha >= beta) {
+                return player.returnBestScore(alpha, beta);
+            }
+
         }
-        return bestScore;
+        return player.returnBestScore(alpha, beta);
+    }
+
+    private double applyMinimax(Board board, Player player, double depth, double alpha, double beta) {
+        while (!board.gameOver()) {
+
+            if (player.getMarker().equals(currentPlayer.getMarker())) {
+                MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
+                return alphabeta(board, maxPlayer, depth, alpha, beta);
+            } else {
+                MinimizingPlayer minPlayer = new MinimizingPlayer(player);
+                return alphabeta(board, minPlayer, depth, alpha, beta);
+            }
+        }
+        return getScore(board);
     }
 
 }

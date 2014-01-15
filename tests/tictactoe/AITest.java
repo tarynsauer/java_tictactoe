@@ -19,7 +19,7 @@ public class AITest {
         player.setOpponent(playerO);
         playerO.setOpponent(player);
         ai = new AI(player);
-        board = new Board();
+        board = new Board(3);
     }
 
     @Test

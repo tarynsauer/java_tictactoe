@@ -28,11 +28,16 @@ abstract class AbstractAlphaBeta implements Player {
         board.getCells()[cellIndex] = this.marker;
     }
 
-    public int getAlpha(int alpha, int score) {
+    public double getAlpha(double alpha, double score) {
         return alpha;
     }
 
-    public int getBeta(int beta, int score) {
+    public double getBeta(double beta, double score) {
         return beta;
     }
+
+    public double returnBestScore(double alpha, double beta) {
+        return alpha;
+    }
+
 }

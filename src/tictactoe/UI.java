@@ -48,12 +48,16 @@ public class UI {
         stream.println("ERROR: '" + input + "' is not a valid input value.");
     }
 
-    public void invalidBoardSizeMessage(int sizeNum) {
-        stream.println("ERROR: '" + Integer.toString(sizeNum) + "' is not a valid board size.");
+    public void invalidBoardSizeMessage(String size) {
+        stream.println("ERROR: '" + size + "' is not a valid board size.");
     }
 
     public void requestDifficultyLevel(String marker) {
         stream.println("For computer player '" + marker + "', enter EASY or HARD:");
+    }
+
+    public void goodbyeMessage() {
+        stream.println("Thanks for playing. Goodbye!");
     }
 
     public String returnPlayerType() {
@@ -83,7 +87,7 @@ public class UI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return level;
+        return level.toLowerCase();
     }
 
     public String getNextMove() {
@@ -95,4 +99,5 @@ public class UI {
         }
         return move;
     }
+
 }

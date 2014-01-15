@@ -3,22 +3,27 @@ package tictactoe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+
 /**
  * Created by Taryn on 1/7/14.
  */
 public class Board {
 
-    private int rows = 3;
+    private int rows;
     private String[] cells;
-    private int[][] winningLines = new int[8][3];
+    private int[][] winningLines;
 
-    public Board() {
-      cells = new String[9];
-      for (int num = 1; num <= (cells.length); num++) {
-        int i = num - 1;
-        cells[i] = Integer.toString(num);
-      }
-      getWinningLines();
+    public Board(int size) {
+        this.rows = size;
+        cells = new String[rows * rows];
+        for (int num = 1; num <= (cells.length); num++) {
+            int i = num - 1;
+            cells[i] = Integer.toString(num);
+        }
+        int totalLines = (rows + rows + 2);
+        this.winningLines = new int[totalLines][rows];
+        getWinningLines();
+        setCells(cells);
     }
 
     public int getRows() {
@@ -26,7 +31,7 @@ public class Board {
     }
 
     public String[] getCells() {
-        return cells;
+        return this.cells;
     }
 
     public void setCells(String[] cells) {
@@ -34,11 +39,11 @@ public class Board {
     }
 
     public boolean hasAvailableCell() {
-      for(String cellValue : cells) {
-        if ((!(cellValue.equals("X")) && !(cellValue.equals("O"))))
-           return true;
+        for (String cellValue : cells) {
+            if ((!(cellValue.equals("X")) && !(cellValue.equals("O"))))
+                return true;
         }
-      return false;
+        return false;
     }
 
     public ArrayList<Integer> availableCellIndexes() {
@@ -51,16 +56,16 @@ public class Board {
     }
 
     public boolean isValidCell(int cellIndex) {
-      int totalCellsCount = rows * rows;
+        int totalCellsCount = rows * rows;
         return (cellIndex > 0) && (cellIndex < totalCellsCount) && isOpen(cellIndex);
     }
 
     public int[][] getWinningLines() {
-      getAllRows();
-      getColumns();
-      getDiagonal(0, 6, 4);
-      getDiagonal(2, 7, 2);
-      return winningLines;
+        getAllRows();
+        getColumns();
+        getDiagonal(0, (rows * 2), (rows + 1));
+        getDiagonal((rows - 1), ((rows * 2) + 1), (rows - 1));
+        return winningLines;
     }
 
     public String getRandomCell() {
@@ -73,17 +78,17 @@ public class Board {
 
     private void getDiagonal(int cellIndex, int rowIndex, int incrementByNumber) {
         for (int colIndex = 0; colIndex < rows; colIndex++) {
-          winningLines[rowIndex][colIndex] = cellIndex;
-          cellIndex = cellIndex + incrementByNumber;
+            winningLines[rowIndex][colIndex] = cellIndex;
+            cellIndex = cellIndex + incrementByNumber;
         }
     }
 
     private void getColumns() {
-      int cellIndex = 0;
-      for (int colIndex = 0; colIndex < rows; colIndex++) {
-        incrementColumnIndex(cellIndex, colIndex);
-        cellIndex += rows;
-      }
+        int cellIndex = 0;
+        for (int colIndex = 0; colIndex < rows; colIndex++) {
+            incrementColumnIndex(cellIndex, colIndex);
+            cellIndex += rows;
+        }
     }
 
     private void incrementColumnIndex(int cellIndex, int colIndex) {
@@ -94,16 +99,17 @@ public class Board {
     }
 
     private void getAllRows() {
-      int cellIndex = 0;
-      for (int rowIndex = 0; rowIndex < rows; rowIndex++)
-        for (int colIndex = 0; colIndex < rows; colIndex++) {
-          winningLines[rowIndex][colIndex] = cellIndex;
-            cellIndex++;
-        }
+        int cellIndex = 0;
+        for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+            for (int colIndex = 0; colIndex < rows; colIndex++) {
+                winningLines[rowIndex][colIndex] = cellIndex;
+                cellIndex++;
+            }
     }
 
     public boolean winningGame(String marker) {
-        String lineMarkers[] = {marker, marker, marker};
+        String lineMarkers[] = new String[rows];
+        Arrays.fill(lineMarkers, marker);
         for (int lineIndex = 0; lineIndex < ((rows * 2) + 2); lineIndex++) {
             String line[] = new String[rows];
             for (int i = 0; i < rows; i++) {
@@ -111,11 +117,12 @@ public class Board {
                 line[i] = markerOnBoard;
             }
             if (Arrays.equals(line, lineMarkers)) {
-              return true;
+                return true;
             }
         }
         return false;
     }
+
     public boolean gameOver() {
         return (winningGame("X") || winningGame("O")) || !hasAvailableCell();
     }

@@ -1,27 +1,22 @@
 package tictactoe;
 
-import com.sun.tools.doclets.internal.toolkit.util.SourceToHTMLConverter;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-
 /**
- * Created by Taryn on 1/6/14.
+ * Created by Taryn on 1/10/14.
  */
 public class Game {
     private Board board;
     private Player playerOne;
+    private int boardSize;
     private Player playerTwo;
     private Player playerFirstMove;
     private UI ui;
 
-    public Game() {
-        this.board = new Board();
-        this.playerOne = new HumanPlayer("X");
-        this.playerTwo = new HumanPlayer("O");
-        this.playerFirstMove = randomizePlayerFirstMove();
-        this.ui = new UI();
+    public Game(GameSettings params) {
+        this.boardSize = params.getBoardSize();
+        this.playerOne = params.getPlayerOne();
+        this.playerTwo = params.getPlayerTwo();
+        this.playerFirstMove = params.getPlayerFirstMove();
+        this.ui = params.getUI();
     }
 
     public Board getBoard() {
@@ -34,6 +29,10 @@ public class Game {
 
     public Player getPlayerOne() {
         return this.playerOne;
+    }
+
+    public int getBoardSize() {
+        return this.boardSize;
     }
 
     public Player getPlayerTwo() {
@@ -60,42 +59,23 @@ public class Game {
         }
     }
 
-    public Player randomizePlayerFirstMove() {
-        int rand = (Math.random() < 0.5) ? 0 : 1;
-        if (rand == 0) {
-          return playerOne;
-        } else {
-          return playerTwo;
-        }
-    }
-
-    public String winningMarker() {
-        if (board.winningGame("X")) {
-            return "X";
-        } else if (board.winningGame("O")) {
-            return "O";
-        }
-        return "tie game!";
-    }
-
     public boolean gameOver() {
         if (board.winningGame("X") || board.winningGame("O")) {
             return true;
         } else if (!board.hasAvailableCell()) {
-           return true;
+            return true;
         } else {
-           return false;
+            return false;
         }
     }
 
     private Integer countMarker(String marker) {
         int markerCount = 0;
-        for (int i = 0; i < board.getCells().length; i++) {
-            if (board.getCells()[i].equals(marker)) {
-                markerCount += 1;
+        for (int i = 0; i < (board.getCells().length); i++) {
+            if (getBoard().getCells()[i].equals(marker)) {
+                markerCount++;
             }
         }
         return markerCount;
     }
-
 }

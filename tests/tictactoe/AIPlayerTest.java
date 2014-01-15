@@ -18,7 +18,7 @@ public class AIPlayerTest {
         HumanPlayer playerO = new HumanPlayer("O");
         player.setOpponent(playerO);
         playerO.setOpponent(player);
-        board = new Board();
+        board = new Board(3);
     }
 
     @Test

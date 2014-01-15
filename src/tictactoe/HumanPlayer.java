@@ -9,4 +9,9 @@ public class HumanPlayer extends AbstractPlayer {
         super(marker);
     }
 
+    public String makeMove(Board board) {
+        UI ui = new UI();
+        return ui.getNextMove();
+    }
+
 }

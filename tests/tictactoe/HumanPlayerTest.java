@@ -17,7 +17,7 @@ public class HumanPlayerTest {
     @Before
     public void setUp() throws Exception {
       player = new HumanPlayer("X");
-      board = new Board();
+      board = new Board(3);
     }
 
     @Test

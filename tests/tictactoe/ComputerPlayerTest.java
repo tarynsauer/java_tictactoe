@@ -15,7 +15,7 @@ public class ComputerPlayerTest {
     @Before
     public void setUp() throws Exception {
         player = new ComputerPlayer("X");
-        board = new Board();
+        board = new Board(3);
     }
 
     @Test
