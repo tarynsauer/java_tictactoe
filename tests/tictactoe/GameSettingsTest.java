@@ -66,4 +66,19 @@ public class GameSettingsTest {
         assertEquals(gameSettings.getBoardSize(), 3);
     }
 
+    @Test
+    public void testGeneratePlayerReturnsAIPlayer() throws Exception {
+        assertThat(GameSettings.generatePlayer("hard", "X"), is((AIPlayer.class)));
+    }
+
+    @Test
+    public void testGeneratePlayerReturnsComputerPlayer() throws Exception {
+        assertThat(GameSettings.generatePlayer("easy", "X"), is((ComputerPlayer.class)));
+    }
+
+    @Test
+    public void testGeneratePlayerReturnsHumanPlayer() throws Exception {
+        assertThat(GameSettings.generatePlayer("human", "X"), is((HumanPlayer.class)));
+    }
+
 }

@@ -71,15 +71,25 @@ public class GameSettings {
         }
     }
 
+    public static Player generatePlayer(String type, String marker) {
+        if (type.equals(HARD_COMPUTER)) {
+            return new AIPlayer(marker);
+        } else if (type.equals(EASY_COMPUTER)) {
+            return new ComputerPlayer(marker);
+        } else {
+            return new HumanPlayer(marker);
+        }
+    }
+
     public Player returnPlayer(String marker) {
         ui.requestPlayerType(marker);
         String type = ui.returnPlayerType();
         validatePlayerType(type, marker);
         if (type.equals(HUMAN_PLAYER))
-            return PlayerFactory.generatePlayer(type, marker);
+            return generatePlayer(type, marker);
         else {
             String level = getComputerDifficulty(marker);
-            return PlayerFactory.generatePlayer(level, marker);
+            return generatePlayer(level, marker);
         }
     }
 
