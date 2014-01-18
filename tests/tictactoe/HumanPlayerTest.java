@@ -16,7 +16,7 @@ public class HumanPlayerTest {
 
     @Before
     public void setUp() throws Exception {
-      player = new HumanPlayer("X");
+      player = new HumanPlayer(TictactoeConstants.X_MARKER);
       board = new Board(3);
     }
 

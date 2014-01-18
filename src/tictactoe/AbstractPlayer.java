@@ -33,4 +33,5 @@ abstract class AbstractPlayer implements Player {
         UI ui = new UI();
         return ui.getNextMove();
     }
+
 }

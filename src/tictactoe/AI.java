@@ -20,7 +20,7 @@ public class AI {
     }
 
     public int getAIMove(Board board) {
-        Board testBoard = new Board(3);
+        Board testBoard = new Board(board.getRows());
         testBoard.setCells(board.getCells());
         return getBestMove(testBoard);
     }
@@ -29,9 +29,9 @@ public class AI {
         Map<Integer, Double> rankedMoves = rankPossibleMoves(board);
         int bestMove = 0;
         double bestScore = NEG_INF;
-        for (Map.Entry<Integer, Double> entry : rankedMoves.entrySet()) {
-            int cellID = entry.getKey();
-            double score = entry.getValue();
+        for (Map.Entry<Integer, Double> cell : rankedMoves.entrySet()) {
+            int cellID = cell.getKey();
+            double score = cell.getValue();
             if (score > bestScore) {
                 bestScore = score;
                 bestMove = cellID;
@@ -52,7 +52,7 @@ public class AI {
 
     private Double getMoveScore(Board board, Player player, int cellID) {
         player.addTestMarker(board, cellID);
-        double bestScore = applyMinimax(board, player, 0.0, NEG_INF, POS_INF);
+        double bestScore = applyMinimax(board, player, 0, NEG_INF, POS_INF);
         board.removeMarker(cellID);
         return bestScore;
     }
@@ -64,6 +64,19 @@ public class AI {
             return LOSE;
         }
         return TIE;
+    }
+
+    private double applyMinimax(Board board, Player player, double depth, double alpha, double beta) {
+        while (!board.gameOver() && depth < (10 - board.getRows())) {
+            if (player.getMarker().equals(currentPlayer.getMarker())) {
+                MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
+                return alphabeta(board, maxPlayer, depth, alpha, beta);
+            } else {
+                MinimizingPlayer minPlayer = new MinimizingPlayer(player);
+                return alphabeta(board, minPlayer, depth, alpha, beta);
+            }
+        }
+        return getScore(board);
     }
 
     private double alphabeta(Board board, AbstractAlphaBeta player, double depth, double alpha, double beta) {
@@ -81,19 +94,4 @@ public class AI {
         }
         return player.returnBestScore(alpha, beta);
     }
-
-    private double applyMinimax(Board board, Player player, double depth, double alpha, double beta) {
-        while (!board.gameOver()) {
-
-            if (player.getMarker().equals(currentPlayer.getMarker())) {
-                MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
-                return alphabeta(board, maxPlayer, depth, alpha, beta);
-            } else {
-                MinimizingPlayer minPlayer = new MinimizingPlayer(player);
-                return alphabeta(board, minPlayer, depth, alpha, beta);
-            }
-        }
-        return getScore(board);
-    }
-
 }

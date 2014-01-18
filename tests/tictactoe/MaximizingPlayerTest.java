@@ -17,8 +17,8 @@ public class MaximizingPlayerTest {
 
     @Test
     public void testGetOpponentMaximizingReturnsPlayerO() throws Exception {
-        AIPlayer player = new AIPlayer("X");
-        HumanPlayer playerO = new HumanPlayer("O");
+        AIPlayer player = new AIPlayer(TictactoeConstants.X_MARKER);
+        HumanPlayer playerO = new HumanPlayer(TictactoeConstants.O_MARKER);
         player.setOpponent(playerO);
         playerO.setOpponent(player);
         MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
@@ -27,8 +27,8 @@ public class MaximizingPlayerTest {
     }
 
     public void testGetOpponentMinimizingReturnsPlayerO() throws Exception {
-        AIPlayer player = new AIPlayer("X");
-        HumanPlayer playerO = new HumanPlayer("O");
+        AIPlayer player = new AIPlayer(TictactoeConstants.X_MARKER);
+        HumanPlayer playerO = new HumanPlayer(TictactoeConstants.O_MARKER);
         player.setOpponent(playerO);
         playerO.setOpponent(player);
         MinimizingPlayer minPlayer = new MinimizingPlayer(player);

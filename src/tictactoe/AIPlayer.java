@@ -15,4 +15,9 @@ public class AIPlayer extends AbstractPlayer {
         return board.getCells()[cellID];
     }
 
+    @Override
+    public void setUI(UI ui) {
+
+    }
+
 }

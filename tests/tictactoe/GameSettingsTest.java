@@ -37,8 +37,8 @@ public class GameSettingsTest {
 
     @Test
     public void testRandomizePlayerFirstMoveReturnsAPlayerObject() {
-        HumanPlayer playerX = new HumanPlayer("X");
-        HumanPlayer playerO = new HumanPlayer("O");
+        HumanPlayer playerX = new HumanPlayer(TictactoeConstants.X_MARKER);
+        HumanPlayer playerO = new HumanPlayer(TictactoeConstants.O_MARKER);
         gameSettings.setPlayerOne(playerX);
         gameSettings.setPlayerTwo(playerO);
         assertThat(gameSettings.randomizePlayerFirstMove(), is((HumanPlayer.class)));
@@ -48,14 +48,14 @@ public class GameSettingsTest {
     public void testReturnPlayerReturnsHumanPlayerObject() throws Exception {
         inputArray.add("human");
         bufferedReader.setInputHistory(inputArray);
-        assertThat(gameSettings.returnPlayer("X"), is((HumanPlayer.class)));
+        assertThat(gameSettings.returnPlayer(TictactoeConstants.X_MARKER), is((HumanPlayer.class)));
     }
 
     @Test
     public void testGetComputerDifficultyReturnsValidDifficultyValue() throws Exception {
         inputArray.add("easy");
         bufferedReader.setInputHistory(inputArray);
-        assertEquals(gameSettings.getComputerDifficulty("X"), "easy");
+        assertEquals(gameSettings.getComputerDifficulty(TictactoeConstants.X_MARKER), "easy");
     }
 
     @Test
@@ -68,17 +68,17 @@ public class GameSettingsTest {
 
     @Test
     public void testGeneratePlayerReturnsAIPlayer() throws Exception {
-        assertThat(GameSettings.generatePlayer("hard", "X"), is((AIPlayer.class)));
+        assertThat(gameSettings.generatePlayer("hard", TictactoeConstants.X_MARKER), is((AIPlayer.class)));
     }
 
     @Test
     public void testGeneratePlayerReturnsComputerPlayer() throws Exception {
-        assertThat(GameSettings.generatePlayer("easy", "X"), is((ComputerPlayer.class)));
+        assertThat(gameSettings.generatePlayer("easy", "X"), is((ComputerPlayer.class)));
     }
 
     @Test
     public void testGeneratePlayerReturnsHumanPlayer() throws Exception {
-        assertThat(GameSettings.generatePlayer("human", "X"), is((HumanPlayer.class)));
+        assertThat(gameSettings.generatePlayer("human", "X"), is((HumanPlayer.class)));
     }
 
 }

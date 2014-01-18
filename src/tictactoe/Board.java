@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import static tictactoe.TictactoeConstants.O_MARKER;
+import static tictactoe.TictactoeConstants.X_MARKER;
 /**
  * Created by Taryn on 1/7/14.
  */
@@ -40,7 +42,7 @@ public class Board {
 
     public boolean hasAvailableCell() {
         for (String cellValue : cells) {
-            if ((!(cellValue.equals("X")) && !(cellValue.equals("O"))))
+            if ((!(cellValue.equals(X_MARKER)) && !(cellValue.equals(O_MARKER))))
                 return true;
         }
         return false;
@@ -49,7 +51,7 @@ public class Board {
     public ArrayList<Integer> availableCellIndexes() {
         ArrayList<Integer> openCellIndexes = new ArrayList<Integer>();
         for (int i = 0; i < cells.length; i++) {
-            if ((!(cellValue(i).equals("X")) && !(cellValue(i).equals("O"))))
+            if ((!(cellValue(i).equals(X_MARKER)) && !(cellValue(i).equals(O_MARKER))))
                 openCellIndexes.add(i);
         }
         return openCellIndexes;
@@ -74,6 +76,30 @@ public class Board {
         int index = randomGenerator.nextInt(openCells.size());
         int randomCellIndex = openCells.get(index);
         return cells[randomCellIndex];
+    }
+
+    public boolean winningGame(String marker) {
+        String lineMarkers[] = new String[rows];
+        Arrays.fill(lineMarkers, marker);
+        for (int lineIndex = 0; lineIndex < ((rows * 2) + 2); lineIndex++) {
+            String line[] = new String[rows];
+            for (int i = 0; i < rows; i++) {
+                String markerOnBoard = cells[winningLines[lineIndex][i]];
+                line[i] = markerOnBoard;
+            }
+            if (Arrays.equals(line, lineMarkers)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean gameOver() {
+        return (winningGame(X_MARKER) || winningGame(O_MARKER)) || !hasAvailableCell();
+    }
+
+    public void removeMarker(int cellIndex) {
+        cells[cellIndex] = Integer.toString(cellIndex + 1);
     }
 
     private void getDiagonal(int cellIndex, int rowIndex, int incrementByNumber) {
@@ -107,32 +133,8 @@ public class Board {
             }
     }
 
-    public boolean winningGame(String marker) {
-        String lineMarkers[] = new String[rows];
-        Arrays.fill(lineMarkers, marker);
-        for (int lineIndex = 0; lineIndex < ((rows * 2) + 2); lineIndex++) {
-            String line[] = new String[rows];
-            for (int i = 0; i < rows; i++) {
-                String markerOnBoard = cells[winningLines[lineIndex][i]];
-                line[i] = markerOnBoard;
-            }
-            if (Arrays.equals(line, lineMarkers)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean gameOver() {
-        return (winningGame("X") || winningGame("O")) || !hasAvailableCell();
-    }
-
-    public void removeMarker(int cellIndex) {
-        cells[cellIndex] = Integer.toString(cellIndex + 1);
-    }
-
     private boolean isOpen(int cellIndex) {
-        return (!(cellValue(cellIndex).equals("X")) && !(cellValue(cellIndex).equals("O")));
+        return (!(cellValue(cellIndex).equals(X_MARKER)) && !(cellValue(cellIndex).equals(O_MARKER)));
     }
 
     private String cellValue(int cellIndex) {

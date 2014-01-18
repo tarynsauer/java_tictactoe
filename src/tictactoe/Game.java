@@ -1,7 +1,7 @@
 package tictactoe;
 
 import java.io.IOException;
-
+import static tictactoe.TictactoeConstants.*;
 /**
  * Created by Taryn on 1/10/14.
  */
@@ -65,16 +65,11 @@ public class Game {
 
     public void startGame() {
         ui.firstMoveMessage(playerFirstMove.getMarker());
-        board.printBoard();
         playGame();
     }
 
     public void playGame() {
-        Player player = currentPlayer();
-        ui.nextMoveMessage(player.getMarker());
-        String move = player.makeMove(board);
-        player.addMarker(board, move);
-        board.printBoard();
+        advanceGame();
         if (gameOver()) {
             exitGame();
         } else {
@@ -82,25 +77,34 @@ public class Game {
         }
     }
 
+    public void advanceGame() {
+        Player player = currentPlayer();
+        ui.nextMoveMessage(player.getMarker());
+        board.printBoard();
+        String move = player.makeMove(board);
+        player.addMarker(board, move);
+    }
+
     public void exitGame() {
+        board.printBoard();
         displayGameOverMessage();
         ui.goodbyeMessage();
         System.exit(0);
     }
 
     public void displayGameOverMessage() {
-        if (getBoard().winningGame("X")) {
-            ui.winningGameMessage("X");
-        } else if (getBoard().winningGame("O")) {
-            ui.winningGameMessage("O");
+        if (getBoard().winningGame(X_MARKER)) {
+            ui.winningGameMessage(X_MARKER);
+        } else if (getBoard().winningGame(O_MARKER)) {
+            ui.winningGameMessage(O_MARKER);
         } else {
             ui.tieGameMessage();
         }
     }
 
     public Player currentPlayer() {
-        int markerX = countMarker("X");
-        int markerO = countMarker("O");
+        int markerX = countMarker(X_MARKER);
+        int markerO = countMarker(O_MARKER);
         if (markerX > markerO) {
             return playerTwo;
         } else if (markerO > markerX) {
@@ -111,13 +115,7 @@ public class Game {
     }
 
     public boolean gameOver() {
-        if (board.winningGame("X") || board.winningGame("O")) {
-            return true;
-        } else if (!board.hasAvailableCell()) {
-            return true;
-        } else {
-            return false;
-        }
+        return ((board.winningGame(X_MARKER) || board.winningGame(O_MARKER)) || !board.hasAvailableCell());
     }
 
     private Integer countMarker(String marker) {

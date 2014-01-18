@@ -20,4 +20,9 @@ public class MaximizingPlayer extends AbstractAlphaBeta {
     public double returnBestScore(double alpha, double beta) {
         return beta;
     }
+
+    @Override
+    public void setUI(UI ui) {
+
+    }
 }

@@ -17,4 +17,8 @@ public class MinimizingPlayer extends AbstractAlphaBeta {
         }
     }
 
+    @Override
+    public void setUI(UI ui) {
+
+    }
 }

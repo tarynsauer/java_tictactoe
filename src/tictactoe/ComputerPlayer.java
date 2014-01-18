@@ -13,4 +13,9 @@ public class ComputerPlayer extends AbstractPlayer {
       return board.getRandomCell();
     }
 
+    @Override
+    public void setUI(UI ui) {
+
+    }
+
 }

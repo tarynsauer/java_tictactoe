@@ -25,13 +25,13 @@ public class UITest {
 
     @Test
     public void testNextMoveMessage() {
-      ui.nextMoveMessage("X");
+      ui.nextMoveMessage(TictactoeConstants.X_MARKER);
       assertEquals("Player 'X': Make your move.", printStream.lastPrintCall());
     }
 
     @Test
     public void testFirstMoveMessage() {
-      ui.firstMoveMessage("X");
+      ui.firstMoveMessage(TictactoeConstants.X_MARKER);
       assertEquals("Player 'X' goes first!", printStream.lastPrintCall());
     }
 
@@ -42,14 +42,20 @@ public class UITest {
     }
 
     @Test
+    public void testGoodbyeMessage() {
+        ui.goodbyeMessage();
+        assertEquals("Thanks for playing. Goodbye!", printStream.lastPrintCall());
+    }
+
+    @Test
     public void testWinningGameMessage() {
-        ui.winningGameMessage("X");
+        ui.winningGameMessage(TictactoeConstants.X_MARKER);
         assertEquals("Game over! Player 'X' wins!", printStream.lastPrintCall());
     }
 
     @Test
     public void testRequestPlayerType() {
-        ui.requestPlayerType("X");
+        ui.requestPlayerType(TictactoeConstants.X_MARKER);
         assertEquals("Enter HUMAN or COMPUTER for player 'X' type:", printStream.lastPrintCall());
     }
 
@@ -73,7 +79,7 @@ public class UITest {
 
     @Test
     public void testRequestDifficultyLevel() {
-        ui.requestDifficultyLevel("X");
+        ui.requestDifficultyLevel(TictactoeConstants.X_MARKER);
         assertEquals("For computer player 'X', enter EASY or HARD:", printStream.lastPrintCall());
     }
 

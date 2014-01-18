@@ -1,7 +1,7 @@
 package tictactoe;
 
 import java.io.PrintStream;
-
+import static tictactoe.TictactoeConstants.*;
 /**
  * Created by Taryn on 1/7/14.
  */
@@ -47,7 +47,7 @@ public class CLIBoard extends Board {
     }
 
     private boolean filledCell(int cellIndex) {
-        return (getCells()[cellIndex].equals("X") || getCells()[cellIndex].equals("O"));
+        return (getCells()[cellIndex].equals(X_MARKER) || getCells()[cellIndex].equals(O_MARKER));
     }
 
 }

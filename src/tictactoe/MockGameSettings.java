@@ -1,5 +1,4 @@
 package tictactoe;
-
 /**
  * Created by Taryn on 1/14/14.
  */
@@ -7,7 +6,6 @@ public class MockGameSettings extends GameSettings {
 
     private UI ui;
     private int boardSize;
-    private Board board;
     private Player playerOne;
     private Player playerTwo;
     private Player playerFirstMove;
@@ -17,8 +15,8 @@ public class MockGameSettings extends GameSettings {
 
     public void getAllSettings() {
         this.ui = new UI();
-        this.playerOne = returnPlayer("X");
-        this.playerTwo = returnPlayer("O");
+        this.playerOne = returnPlayer(TictactoeConstants.X_MARKER);
+        this.playerTwo = returnPlayer(TictactoeConstants.O_MARKER);
         this.playerFirstMove = randomizePlayerFirstMove();
         returnBoardSize();
     }
@@ -59,7 +57,6 @@ public class MockGameSettings extends GameSettings {
         return new HumanPlayer(marker);
     }
 
-    @Override
     public void returnBoardSize() {
         this.boardSize = 3;
     }

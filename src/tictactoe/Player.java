@@ -11,4 +11,6 @@ public interface Player {
     void addTestMarker(Board board, int cellID);
     void addMarker(Board board, String move);
     String makeMove(Board board);
+
+    void setUI(UI ui);
 }
