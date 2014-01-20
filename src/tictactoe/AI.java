@@ -99,11 +99,11 @@ public class AI {
         return alphaBeta.returnBestScore(alpha, beta);
     }
 
-    public void addPlayerMarker(Board board, int cellIndex) {
+    private void addPlayerMarker(Board board, int cellIndex) {
         board.getCells()[cellIndex] = currentPlayer;
     }
 
-    public String opponent(String marker) {
+    private String opponent(String marker) {
         if (marker.equals(X_MARKER)) {
             return O_MARKER;
         } else {

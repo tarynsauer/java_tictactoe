@@ -17,8 +17,6 @@ public class MaximizingScore extends AlphaBeta {
         }
     }
 
-    public double returnBestScore(double alpha, double beta) {
-        return beta;
-    }
+    public double returnBestScore(double alpha, double beta) { return beta; }
 
 }

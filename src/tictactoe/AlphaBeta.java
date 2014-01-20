@@ -22,16 +22,15 @@ public class AlphaBeta {
 
     public double returnBestScore(double alpha, double beta) { return alpha; }
 
-    public String opponent(String marker) {
+    public void addOpponentMarker(Board board, int cellIndex) {
+        board.getCells()[cellIndex] = opponent(getPlayerMarker());
+    }
+
+    private String opponent(String marker) {
         if (marker.equals(X_MARKER)) {
             return O_MARKER;
         } else {
             return X_MARKER;
         }
     }
-
-    public void addOpponentMarker(Board board, int cellIndex) {
-        board.getCells()[cellIndex] = opponent(getPlayerMarker());
-    }
-
 }

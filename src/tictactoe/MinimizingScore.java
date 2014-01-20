@@ -16,4 +16,5 @@ class MinimizingScore extends AlphaBeta {
             return alpha;
         }
     }
+
 }
