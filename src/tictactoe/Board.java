@@ -22,8 +22,7 @@ public class Board {
             int i = num - 1;
             cells[i] = Integer.toString(num);
         }
-        int totalLines = (rows + rows + 2);
-        this.winningLines = new int[totalLines][rows];
+        this.winningLines = new int[(rows + rows + 2)][rows];
         getWinningLines();
         setCells(cells);
     }
@@ -57,9 +56,14 @@ public class Board {
         return openCellIndexes;
     }
 
-    public boolean isValidCell(int cellIndex) {
-        int totalCellsCount = rows * rows;
-        return (cellIndex > 0) && (cellIndex < totalCellsCount) && isOpen(cellIndex);
+    public boolean validMove(String move) {
+        if (tryParse(move)) {
+            int cellIndex = (new Integer(move) - 1);
+            int totalCellsCount = rows * rows;
+            return (cellIndex >= 0) && (cellIndex < totalCellsCount) && isOpen(cellIndex);
+        } else {
+            return false;
+        }
     }
 
     public int[][] getWinningLines() {
@@ -141,4 +145,17 @@ public class Board {
         return cells[cellIndex];
     }
 
+    private static boolean tryParse(String input) {
+        if (input.length() > 0) {
+            try {
+                new Integer(input);
+                return true;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
 }

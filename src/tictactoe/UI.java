@@ -1,16 +1,23 @@
 package tictactoe;
 
 import java.io.*;
+
+import static tictactoe.TictactoeConstants.X_MARKER;
+import static tictactoe.TictactoeConstants.O_MARKER;
+
 /**
  * Created by Taryn on 1/8/14.
  */
 public class UI {
+    private Board board;
 
   public UI() {
   }
     PrintStream stream = System.out;
     InputStream input = System.in;
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input));
+
+    public void setBoard(Board board) { this.board = board; }
 
     public void setPrintStream(PrintStream stream) {
         this.stream = stream;
@@ -91,13 +98,54 @@ public class UI {
     }
 
     public String getNextMove() {
-        String move = "";
-        try {
-            move = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
+        String move = "0";
+        while (!board.validMove(move)) {
+            try {
+                move = bufferedReader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            } finally {
+                if (!board.validMove(move)) {
+                    badInputMessage(move);
+                }
+            }
         }
         return move;
+    }
+
+    public void printDivider() {
+        String divider = "";
+        for (int cols = 1; cols <= board.getRows(); cols++) {
+            divider += "------";
+        }
+        stream.print(divider + "\n");
+    }
+
+    public void printBoardRow(int firstCellIndex) {
+        String rowString = "";
+        int lastCellIndex = firstCellIndex + board.getRows();
+        for (int i = firstCellIndex; i < lastCellIndex; i++) {
+            int numLength = Integer.toString(i + 1).length();
+            if ((numLength == 1) || filledCell(i)) {
+                rowString += "|  " + board.getCells()[i] + "  ";
+            } else {
+                rowString += "|  " + board.getCells()[i] + " ";
+            }
+        }
+        stream.print(rowString + "|\n");
+    }
+
+    public void printBoard() {
+        for (int i = 0; i < (board.getRows() * board.getRows()); i += board.getRows()) {
+            printBoardRow(i);
+            printDivider();
+        }
+    }
+
+    private boolean filledCell(int cellIndex) {
+        return (board.getCells()[cellIndex].equals(X_MARKER) || board.getCells()[cellIndex].equals(O_MARKER));
     }
 
 }

@@ -81,19 +81,24 @@ public class BoardTest {
     }
 
     @Test
-    public void testIsValidCellReturnsTrueWhenCellValueIsNull() {
-        assertTrue(board.isValidCell(1));
+    public void testValidMoveReturnsTrueWhenCellValueIsValid() {
+        assertTrue(board.validMove("2"));
     }
 
     @Test
-    public void testIsValidCellReturnsFalseWhenCellValueIsNotNull() {
+    public void testValidMoveReturnsFalseWhenCellValueIsNotNull() {
         board.getCells()[1] = "X";
-        assertFalse(board.isValidCell(1));
+        assertFalse(board.validMove("2"));
     }
 
     @Test
-    public void testIsValidCellReturnsFalseWhenInvalidCellIndex() {
-        assertFalse(board.isValidCell(9));
+    public void testValidMoveReturnsFalseWhenInvalidCellIndex() {
+        assertFalse(board.validMove("0"));
+    }
+
+    @Test
+    public void testValidMoveReturnsFalseWhenEmptyString() {
+        assertFalse(board.validMove(""));
     }
 
     @Test

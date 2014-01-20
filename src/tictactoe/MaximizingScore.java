@@ -3,10 +3,10 @@ package tictactoe;
 /**
  * Created by Taryn on 1/13/14.
  */
-public class MaximizingPlayer extends AbstractAlphaBeta {
+public class MaximizingScore extends AlphaBeta {
 
-    public MaximizingPlayer(Player player) {
-        super(player);
+    public MaximizingScore(String playerMarker) {
+        super(playerMarker);
     }
 
     public double getBeta(double beta, double score) {
@@ -21,8 +21,4 @@ public class MaximizingPlayer extends AbstractAlphaBeta {
         return beta;
     }
 
-    @Override
-    public void setUI(UI ui) {
-
-    }
 }

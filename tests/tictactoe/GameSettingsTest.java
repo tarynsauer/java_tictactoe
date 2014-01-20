@@ -37,18 +37,26 @@ public class GameSettingsTest {
 
     @Test
     public void testRandomizePlayerFirstMoveReturnsAPlayerObject() {
-        HumanPlayer playerX = new HumanPlayer(TictactoeConstants.X_MARKER);
-        HumanPlayer playerO = new HumanPlayer(TictactoeConstants.O_MARKER);
-        gameSettings.setPlayerOne(playerX);
-        gameSettings.setPlayerTwo(playerO);
-        assertThat(gameSettings.randomizePlayerFirstMove(), is((HumanPlayer.class)));
+        gameSettings.setPlayerOne("human");
+        gameSettings.setPlayerTwo("human");
+        gameSettings.randomizePlayerFirstMove();
+        assertThat(gameSettings.getPlayerFirstMove(), is((String.class)));
     }
 
     @Test
-    public void testReturnPlayerReturnsHumanPlayerObject() throws Exception {
+    public void testSetUpPlayerOneReturnsHumanPlayerObject() throws Exception {
         inputArray.add("human");
         bufferedReader.setInputHistory(inputArray);
-        assertThat(gameSettings.returnPlayer(TictactoeConstants.X_MARKER), is((HumanPlayer.class)));
+        gameSettings.setUpPlayerOne(TictactoeConstants.X_MARKER);
+        assertEquals(gameSettings.getPlayerOne(), "human");
+    }
+
+    @Test
+    public void testSetUpPlayerTwoReturnsHumanPlayerObject() throws Exception {
+        inputArray.add("human");
+        bufferedReader.setInputHistory(inputArray);
+        gameSettings.setUpPlayerTwo(TictactoeConstants.O_MARKER);
+        assertEquals(gameSettings.getPlayerTwo(), "human");
     }
 
     @Test
@@ -59,26 +67,11 @@ public class GameSettingsTest {
     }
 
     @Test
-    public void testReturnBoardSizeReturnsValidBoardSize() throws Exception {
+    public void testSetUpBoardSizeReturnsValidBoardSize() throws Exception {
         inputArray.add("3");
         bufferedReader.setInputHistory(inputArray);
-        gameSettings.returnBoardSize();
+        gameSettings.setUpBoardSize();
         assertEquals(gameSettings.getBoardSize(), 3);
-    }
-
-    @Test
-    public void testGeneratePlayerReturnsAIPlayer() throws Exception {
-        assertThat(gameSettings.generatePlayer("hard", TictactoeConstants.X_MARKER), is((AIPlayer.class)));
-    }
-
-    @Test
-    public void testGeneratePlayerReturnsComputerPlayer() throws Exception {
-        assertThat(gameSettings.generatePlayer("easy", "X"), is((ComputerPlayer.class)));
-    }
-
-    @Test
-    public void testGeneratePlayerReturnsHumanPlayer() throws Exception {
-        assertThat(gameSettings.generatePlayer("human", "X"), is((HumanPlayer.class)));
     }
 
 }

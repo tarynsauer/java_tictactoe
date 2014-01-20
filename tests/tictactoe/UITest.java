@@ -19,7 +19,9 @@ public class UITest {
         MockOutputStream outputStream = new MockOutputStream();
         printStream = new MockPrintStream(outputStream);
         printStream.setPrintCallHistory(new ArrayList<String>());
+        Board board = new Board(3);
         ui = new UI();
+        ui.setBoard(board);
         ui.setPrintStream(printStream);
     }
 
@@ -121,5 +123,27 @@ public class UITest {
       inputArray.add("1");
       bufferedReader.setInputHistory(inputArray);
       assertEquals("1", ui.getNextMove());
+    }
+
+    @Test
+    public void testPrintDivider() {
+        String expectedOutput = "------------------\n";
+        ui.printDivider();
+        assertEquals(expectedOutput, printStream.lastPrintCall());
+    }
+
+    @Test
+    public void testPrintBoardRow() {
+        String expectedOutput = "|  1  |  2  |  3  |\n";
+        ui.printBoardRow(0);
+        assertEquals(expectedOutput, printStream.lastPrintCall());
+    }
+
+    @Test
+    public void testPrintBoard() {
+        String expectedOutput = "|  1  |  2  |  3  |\n------------------\n|  4  |  5  |  6  |\n------------------\n|  7  |  8  |  9  |\n------------------\n";
+        ui.printBoard();
+        String actualOutput = printStream.getPrintCallHistory();
+        assertEquals(expectedOutput, actualOutput);
     }
 }

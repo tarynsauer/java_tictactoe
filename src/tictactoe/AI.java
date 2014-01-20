@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static tictactoe.TictactoeConstants.O_MARKER;
+import static tictactoe.TictactoeConstants.X_MARKER;
+
 /**
  * Created by Taryn on 1/11/14.
  */
 public class AI {
-    private AIPlayer currentPlayer;
+    private String currentPlayer;
     private static final int WIN = 1;
     private static final int LOSE = -1;
     private static final int TIE = 0;
     private static final double NEG_INF = -999;
     private static final double POS_INF = 999;
 
-    public AI(AIPlayer currentPlayer) {
+    public AI(String currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 
@@ -50,48 +53,66 @@ public class AI {
         return rankedMoves;
     }
 
-    private Double getMoveScore(Board board, Player player, int cellID) {
-        player.addTestMarker(board, cellID);
-        double bestScore = applyMinimax(board, player, 0, NEG_INF, POS_INF);
+    private Double getMoveScore(Board board, String playerMarker, int cellID) {
+        addPlayerMarker(board, cellID);
+        double bestScore = applyMinimax(board, playerMarker, 0, NEG_INF, POS_INF);
         board.removeMarker(cellID);
         return bestScore;
     }
 
     private int getScore(Board board) {
-        if (board.winningGame(currentPlayer.getMarker())) {
+        if (board.winningGame(currentPlayer)) {
             return WIN;
-        } else if (board.winningGame(currentPlayer.getOpponent().getMarker())) {
+        } else if (board.winningGame(opponent(currentPlayer))) {
             return LOSE;
         }
         return TIE;
     }
 
-    private double applyMinimax(Board board, Player player, double depth, double alpha, double beta) {
-        while (!board.gameOver() && depth < (10 - board.getRows())) {
-            if (player.getMarker().equals(currentPlayer.getMarker())) {
-                MaximizingPlayer maxPlayer = new MaximizingPlayer(player);
-                return alphabeta(board, maxPlayer, depth, alpha, beta);
+    private double applyMinimax(Board board, String playerMarker, double depth, double alpha, double beta) {
+        while (!board.gameOver() && (depth < maxDepth(board))) {
+            if (playerMarker.equals(currentPlayer)) {
+                MaximizingScore maxScore = new MaximizingScore(playerMarker);
+                return alphabeta(board, maxScore, depth, alpha, beta);
             } else {
-                MinimizingPlayer minPlayer = new MinimizingPlayer(player);
-                return alphabeta(board, minPlayer, depth, alpha, beta);
+                MinimizingScore minScore = new MinimizingScore(playerMarker);
+                return alphabeta(board, minScore, depth, alpha, beta);
             }
         }
         return getScore(board);
     }
 
-    private double alphabeta(Board board, AbstractAlphaBeta player, double depth, double alpha, double beta) {
+    private double alphabeta(Board board, AlphaBeta alphaBeta, double depth, double alpha, double beta) {
         ArrayList<Integer> openCells = board.availableCellIndexes();
+
         for (int cellIndex : openCells) {
-            player.getOpponent().addTestMarker(board, cellIndex);
-            double score = applyMinimax(board, player.getOpponent(), depth++, alpha, beta) / depth;
-            alpha = player.getAlpha(alpha, score);
-            beta = player.getBeta(beta, score);
+            alphaBeta.addOpponentMarker(board, cellIndex);
+            double score = applyMinimax(board, alphaBeta.getOpponentMarker(), depth++, alpha, beta) / depth;
+            alpha = alphaBeta.getAlpha(alpha, score);
+            beta = alphaBeta.getBeta(beta, score);
             board.removeMarker(cellIndex);
             if (alpha >= beta) {
-                return player.returnBestScore(alpha, beta);
+                return alphaBeta.returnBestScore(alpha, beta);
             }
-
         }
-        return player.returnBestScore(alpha, beta);
+
+        return alphaBeta.returnBestScore(alpha, beta);
     }
+
+    public void addPlayerMarker(Board board, int cellIndex) {
+        board.getCells()[cellIndex] = currentPlayer;
+    }
+
+    public String opponent(String marker) {
+        if (marker.equals(X_MARKER)) {
+            return O_MARKER;
+        } else {
+            return X_MARKER;
+        }
+    }
+
+    private int maxDepth(Board board) {
+        return 10 - board.getRows();
+    }
+
 }

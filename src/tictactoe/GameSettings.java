@@ -7,20 +7,24 @@ import static tictactoe.TictactoeConstants.*;
 public class GameSettings {
 
     private UI ui;
+    private Board board;
     private int boardSize;
-    private Player playerOne;
-    private Player playerTwo;
-    private Player playerFirstMove;
+    private String playerOne;
+    private String playerTwo;
+    private String playerFirstMove;
 
     public GameSettings() {
     }
 
     public void getAllSettings() {
         this.ui = new UI();
-        this.playerOne = returnPlayer(X_MARKER);
-        this.playerTwo = returnPlayer(O_MARKER);
-        this.playerFirstMove = randomizePlayerFirstMove();
-        returnBoardSize();
+        setUpPlayerOne(X_MARKER);
+        setUpPlayerTwo(O_MARKER);
+        randomizePlayerFirstMove();
+        setUpBoardSize();
+        Board gameBoard = new Board(this.boardSize);
+        this.board = gameBoard;
+        this.ui.setBoard(gameBoard);
     }
 
     public int getBoardSize() {
@@ -31,23 +35,27 @@ public class GameSettings {
         this.boardSize = boardSize;
     }
 
-    public Player getPlayerOne() {
+    public Board getBoard() {
+        return this.board;
+    }
+
+    public String getPlayerOne() {
         return this.playerOne;
     }
 
-    public Player getPlayerTwo() {
+    public String getPlayerTwo() {
         return this.playerTwo;
     }
 
-    public void setPlayerOne(Player player) {
-        this.playerOne = player;
+    public void setPlayerOne(String playerType) {
+        this.playerOne = playerType;
     }
 
-    public void setPlayerTwo(Player player) {
-        this.playerTwo = player;
+    public void setPlayerTwo(String playerType) {
+        this.playerTwo = playerType;
     }
 
-    public Player getPlayerFirstMove() {
+    public String getPlayerFirstMove() {
         return this.playerFirstMove;
     }
 
@@ -59,71 +67,65 @@ public class GameSettings {
         this.ui = ui;
     }
 
-    public Player randomizePlayerFirstMove() {
+    public void randomizePlayerFirstMove() {
         int rand = (Math.random() < 0.5) ? 0 : 1;
         if (rand == 0) {
-            return this.playerOne;
+            this.playerFirstMove = X_MARKER;
         } else {
-            return this.playerTwo;
+            this.playerFirstMove = O_MARKER;
         }
     }
 
-    public Player generatePlayer(String type, String marker) {
-        if (type.equals(HARD_COMPUTER)) {
-            return new AIPlayer(marker);
-        } else if (type.equals(EASY_COMPUTER)) {
-            return new ComputerPlayer(marker);
-        } else {
-            return new HumanPlayer(marker);
-        }
-    }
-
-    public Player returnPlayer(String marker) {
+    public void setUpPlayerOne(String marker) {
         String type = getPlayerTypeFromUser(marker);
-        validatePlayerType(type, marker);
         if (type.equals(HUMAN_PLAYER))
-            return generatePlayer(type, marker);
-        else {
+            setPlayerOne(type);
+        else if (type.equals(COMPUTER_PLAYER)) {
             String level = getComputerDifficulty(marker);
-            return generatePlayer(level, marker);
+            setPlayerOne(level);
+        } else {
+            validatePlayerType(type, marker);
+        }
+    }
+
+    public void setUpPlayerTwo(String marker) {
+        String type = getPlayerTypeFromUser(marker);
+        if (type.equals(HUMAN_PLAYER))
+            setPlayerTwo(type);
+        else if (type.equals(COMPUTER_PLAYER)) {
+            String level = getComputerDifficulty(marker);
+            setPlayerTwo(level);
+        } else {
+            validatePlayerType(type, marker);
         }
     }
 
     public String getComputerDifficulty(String marker) {
         String level = getDifficultyLevelFromUser(marker);
-        validateDifficultyLevel(level, marker);
+        while ((!level.equals(HARD_COMPUTER) && (!level.equals(EASY_COMPUTER)))) {
+            ui.badInputMessage(level);
+            level = getDifficultyLevelFromUser(marker);
+        }
         return level;
     }
 
-    public void returnBoardSize() {
+    public void setUpBoardSize() {
         String size = getBoardSizeFromUser();
         if (tryParse(size)) {
             validateBoardSize(size);
             setBoardSize(Integer.parseInt(size));
         } else {
             ui.invalidBoardSizeMessage(size);
-            returnBoardSize();
+            setUpBoardSize();
         }
     }
 
     private void validatePlayerType(String type, String marker) {
-        if ((!type.equals(HUMAN_PLAYER) && (!type.equals(COMPUTER_PLAYER)))) {
-            ui.badInputMessage(type);
-            returnPlayer(marker);
-        }
-    }
-
-    private void validateDifficultyLevel(String level, String marker) {
-        if ((!level.equals(HARD_COMPUTER) && (!level.equals(EASY_COMPUTER)))) {
-            ui.badInputMessage(level);
-            returnPlayer(marker);
-        }
-    }
-
-    private void validateBoardSize(String size) {
-        if ((Integer.parseInt(size) < MIN_BOARD_SIZE) || (Integer.parseInt(size) > MAX_BOARD_SIZE)) {
-            ui.invalidBoardSizeMessage(size);
-            returnBoardSize();
+        ui.badInputMessage(type);
+        if (marker.equals(X_MARKER)) {
+            setUpPlayerOne(marker);
+        } else {
+            setUpPlayerTwo(marker);
         }
     }
 
@@ -135,6 +137,13 @@ public class GameSettings {
     private String getDifficultyLevelFromUser(String marker) {
         ui.requestDifficultyLevel(marker);
         return ui.returnDifficultyLevel();
+    }
+
+    private void validateBoardSize(String size) {
+        if ((Integer.parseInt(size) < MIN_BOARD_SIZE) || (Integer.parseInt(size) > MAX_BOARD_SIZE)) {
+            ui.invalidBoardSizeMessage(size);
+            setUpBoardSize();
+        }
     }
 
     private String getBoardSizeFromUser() {
@@ -152,4 +161,3 @@ public class GameSettings {
     }
 
 }
-

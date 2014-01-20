@@ -1,114 +1,83 @@
 package tictactoe;
 
-import java.io.IOException;
 import static tictactoe.TictactoeConstants.*;
+
 /**
  * Created by Taryn on 1/10/14.
  */
 public class Game {
-    private CLIBoard board;
-    private Player playerOne;
-    private Player playerTwo;
-    private Player playerFirstMove;
-    private UI ui;
+    private Board board;
+    private String playerOne;
+    private String playerTwo;
+    private String playerFirstMove;
 
     public Game(GameSettings params) {
-        int boardSize = params.getBoardSize();
         this.playerOne = params.getPlayerOne();
         this.playerTwo = params.getPlayerTwo();
         this.playerFirstMove = params.getPlayerFirstMove();
-        this.ui = params.getUI();
-        this.board = new CLIBoard(boardSize);
-        setPlayerOpponents();
+        this.board = params.getBoard();
     }
 
-    public CLIBoard getBoard() {
+    public Board getBoard() {
         return this.board;
     }
 
-    public void setBoard(CLIBoard board) {
+    public void setBoard(Board board) {
         this.board = board;
     }
 
-    public Player getPlayerOne() {
+    public String getPlayerOne() {
         return this.playerOne;
     }
 
-    public Player getPlayerTwo() {
+    public String getPlayerTwo() {
         return this.playerTwo;
     }
 
-    public Player getPlayerFirstMove() {
+    public String getPlayerFirstMove() {
         return this.playerFirstMove;
     }
 
-    public void setPlayerFirstMove(Player player) {
-        this.playerFirstMove = player;
+    public void setPlayerFirstMove(String playerType) {
+        this.playerFirstMove = playerType;
     }
 
-    public void setUI(UI ui) {
-        this.ui = ui;
+    public void addMarker(String move) {
+        int cellIndex = Integer.parseInt(move) - 1;
+        board.getCells()[cellIndex] = currentPlayer();
     }
 
-    public void setPlayerOpponents() {
-        getPlayerOne().setOpponent(getPlayerTwo());
-        getPlayerTwo().setOpponent(getPlayerOne());
-    }
-
-    public static void main(String[] args) throws IOException {
-        GameSettings settings = new GameSettings();
-        settings.getAllSettings();
-        Game newGame = new Game(settings);
-        newGame.startGame();
-        newGame.playGame();
-    }
-
-    public void startGame() {
-        ui.firstMoveMessage(playerFirstMove.getMarker());
-        playGame();
-    }
-
-    public void playGame() {
-        advanceGame();
-        if (gameOver()) {
-            exitGame();
+    public void makeMove() {
+        if (currentPlayer().equals(X_MARKER)) {
+            String move = getMoveByType(this.playerOne);
+            addMarker(move);
         } else {
-            playGame();
+            String move = getMoveByType(this.playerTwo);
+            addMarker(move);
         }
     }
 
-    public void advanceGame() {
-        Player player = currentPlayer();
-        ui.nextMoveMessage(player.getMarker());
-        board.printBoard();
-        String move = player.makeMove(board);
-        player.addMarker(board, move);
-    }
-
-    public void exitGame() {
-        board.printBoard();
-        displayGameOverMessage();
-        ui.goodbyeMessage();
-        System.exit(0);
-    }
-
-    public void displayGameOverMessage() {
-        if (getBoard().winningGame(X_MARKER)) {
-            ui.winningGameMessage(X_MARKER);
-        } else if (getBoard().winningGame(O_MARKER)) {
-            ui.winningGameMessage(O_MARKER);
+    public String getMoveByType(String playerType) {
+        if (playerType.equals(HUMAN_PLAYER)) {
+            UI ui = new UI();
+            ui.setBoard(board);
+            return ui.getNextMove();
+        } else if (playerType.equals(EASY_COMPUTER)) {
+            return board.getRandomCell();
         } else {
-            ui.tieGameMessage();
+            AI ai = new AI(currentPlayer());
+            int cellID = ai.getAIMove(board);
+            return board.getCells()[cellID];
         }
     }
 
-    public Player currentPlayer() {
+    public String currentPlayer() {
         int markerX = countMarker(X_MARKER);
         int markerO = countMarker(O_MARKER);
         if (markerX > markerO) {
-            return playerTwo;
+            return O_MARKER;
         } else if (markerO > markerX) {
-            return playerOne;
+            return X_MARKER;
         } else {
             return playerFirstMove;
         }

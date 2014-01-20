@@ -6,18 +6,18 @@ public class MockGameSettings extends GameSettings {
 
     private UI ui;
     private int boardSize;
-    private Player playerOne;
-    private Player playerTwo;
-    private Player playerFirstMove;
+    private String playerOne;
+    private String playerTwo;
+    private String playerFirstMove;
 
     public MockGameSettings() {
     }
 
     public void getAllSettings() {
         this.ui = new UI();
-        this.playerOne = returnPlayer(TictactoeConstants.X_MARKER);
-        this.playerTwo = returnPlayer(TictactoeConstants.O_MARKER);
-        this.playerFirstMove = randomizePlayerFirstMove();
+        setUpPlayerOne(TictactoeConstants.X_MARKER);
+        setUpPlayerTwo(TictactoeConstants.O_MARKER);
+        randomizePlayerFirstMove();
         returnBoardSize();
     }
 
@@ -25,23 +25,23 @@ public class MockGameSettings extends GameSettings {
         return this.boardSize;
     }
 
-    public Player getPlayerOne() {
+    public String getPlayerOne() {
         return this.playerOne;
     }
 
-    public Player getPlayerTwo() {
+    public String getPlayerTwo() {
         return this.playerTwo;
     }
 
-    public void setPlayerOne(Player player) {
-        this.playerOne = player;
+    public void setPlayerOne(String playerType) {
+        this.playerOne = playerType;
     }
 
-    public void setPlayerTwo(Player player) {
-        this.playerTwo = player;
+    public void setPlayerTwo(String playerType) {
+        this.playerTwo = playerType;
     }
 
-    public Player getPlayerFirstMove() {
+    public String getPlayerFirstMove() {
         return this.playerFirstMove;
     }
 
@@ -49,12 +49,16 @@ public class MockGameSettings extends GameSettings {
         this.ui = ui;
     }
 
-    public Player randomizePlayerFirstMove() {
-        return this.playerOne;
+    public void randomizePlayerFirstMove() {
+        this.playerFirstMove = "X";
     }
 
-    public Player returnPlayer(String marker) {
-        return new HumanPlayer(marker);
+    public void setUpPlayerOne(String marker) {
+        this.playerOne = "human";
+    }
+
+    public void setUpPlayerTwo(String marker) {
+        this.playerTwo = "human";
     }
 
     public void returnBoardSize() {

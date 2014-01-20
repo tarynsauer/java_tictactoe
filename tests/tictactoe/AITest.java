@@ -14,11 +14,7 @@ public class AITest {
 
     @Before
     public void setUp() throws Exception {
-        AIPlayer player = new AIPlayer("X");
-        HumanPlayer playerO = new HumanPlayer("O");
-        player.setOpponent(playerO);
-        playerO.setOpponent(player);
-        ai = new AI(player);
+        ai = new AI("X");
         board = new Board(3);
     }
 
