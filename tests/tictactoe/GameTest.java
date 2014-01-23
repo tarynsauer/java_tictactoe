@@ -4,17 +4,16 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
 * Created by Taryn on 1/10/14.
 */
 public class GameTest {
     private Game game;
-    private Board board;
 
     @Before
     public void setUp() throws Exception {
@@ -26,14 +25,42 @@ public class GameTest {
     }
 
     @Test
-    public void testAddMarker() {
+    public void testAddMarkerAddsMarkerToCorrectBoardCell() {
         game.addMarker("1");
         String[] expectedOutcome = new String[]{"X", "2", "3", "4", "5", "6", "7", "8", "9"};
-        Assert.assertEquals(Arrays.deepToString(expectedOutcome), Arrays.deepToString(game.getBoard().getCells()));
+        assertArrayEquals(expectedOutcome, game.getBoard().getCells());
     }
 
     @Test
-    public void testCurrentPlayerWhenPlayerTwoTurn() {
+    public void testMakeMoveCallsAddMarkerForTheCurrentPlayer() {
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "O", "O", "X",
+                                              "X", "X", "9"});
+        String[] expectedOutcome = new String[]{"X", "O", "X", "O", "O", "X", "X", "X", "O"};
+        game.makeMove();
+        assertArrayEquals(expectedOutcome, game.getBoard().getCells());
+    }
+
+    @Test
+    public void testGetMoveByTypeReturnsRandomCellForEasyComputerPlayerType() {
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "O", "O", "X",
+                                              "X", "X", "9"});
+        String move = game.getMoveByType(TictactoeConstants.EASY_COMPUTER);
+        assertEquals("9", move);
+    }
+
+    @Test
+    public void testGetMoveByTypeReturnsRandomCellForHardAIPlayerType() {
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                                              "O", "O", "X",
+                                              "X", "X", "9"});
+        String move = game.getMoveByType(TictactoeConstants.HARD_COMPUTER);
+        assertEquals("9", move);
+    }
+
+    @Test
+    public void testCurrentPlayerWhenPlayerTwn() {
         game.getBoard().getCells()[0] = TictactoeConstants.X_MARKER;
         Assert.assertEquals(TictactoeConstants.O_MARKER, game.currentPlayer());
     }

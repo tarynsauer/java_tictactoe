@@ -5,7 +5,8 @@ import org.junit.Test;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import static org.hamcrest.CoreMatchers.is;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -16,7 +17,7 @@ public class GameSettingsTest {
     private GameSettings gameSettings;
     private ArrayList<String> inputArray;
     private MockBufferedReader bufferedReader;
-    private UI ui;
+    private MockUI ui;
     private MockPrintStream printStream;
 
     @Before
@@ -24,7 +25,7 @@ public class GameSettingsTest {
         MockOutputStream outputStream = new MockOutputStream();
         printStream = new MockPrintStream(outputStream);
         printStream.setPrintCallHistory(new ArrayList<String>());
-        ui = new UI();
+        ui = new MockUI();
         ui.setPrintStream(printStream);
 
         bufferedReader = new MockBufferedReader(new InputStreamReader(ui.input));
@@ -33,6 +34,14 @@ public class GameSettingsTest {
         inputArray = new ArrayList<String>();
         gameSettings = new GameSettings();
         gameSettings.setUI(ui);
+    }
+
+    @Test
+    public void testGetAllSettings() {
+        MockUI mockUI = new MockUI();
+        gameSettings.setUI(mockUI);
+        gameSettings.getAllSettings();
+        assertEquals(gameSettings.getPlayerOne(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
@@ -48,7 +57,7 @@ public class GameSettingsTest {
         inputArray.add("human");
         bufferedReader.setInputHistory(inputArray);
         gameSettings.setUpPlayerOne(TictactoeConstants.X_MARKER);
-        assertEquals(gameSettings.getPlayerOne(), "human");
+        assertEquals(gameSettings.getPlayerOne(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
@@ -56,7 +65,7 @@ public class GameSettingsTest {
         inputArray.add("human");
         bufferedReader.setInputHistory(inputArray);
         gameSettings.setUpPlayerTwo(TictactoeConstants.O_MARKER);
-        assertEquals(gameSettings.getPlayerTwo(), "human");
+        assertEquals(gameSettings.getPlayerTwo(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test

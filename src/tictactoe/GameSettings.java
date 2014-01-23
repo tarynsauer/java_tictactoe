@@ -12,18 +12,20 @@ public class GameSettings {
     private String playerOne;
     private String playerTwo;
     private String playerFirstMove;
+    private AbstractHumanMove humanMoveType;
 
     public GameSettings() {
+      this.ui = new UI();
     }
 
     public void getAllSettings() {
-        this.ui = new UI();
         setUpPlayerOne(X_MARKER);
         setUpPlayerTwo(O_MARKER);
         randomizePlayerFirstMove();
         setUpBoardSize();
         Board gameBoard = new Board(this.boardSize);
         this.board = gameBoard;
+        this.humanMoveType = new CLIHumanMove(this.board);
         this.ui.setBoard(gameBoard);
     }
 
@@ -41,6 +43,10 @@ public class GameSettings {
 
     public String getPlayerOne() {
         return this.playerOne;
+    }
+
+    public AbstractHumanMove getHumanMoveType() {
+        return this.humanMoveType;
     }
 
     public String getPlayerTwo() {
@@ -113,7 +119,6 @@ public class GameSettings {
         String size = getBoardSizeFromUser();
         if (tryParse(size)) {
             validateBoardSize(size);
-            setBoardSize(Integer.parseInt(size));
         } else {
             ui.invalidBoardSizeMessage(size);
             setUpBoardSize();
@@ -143,6 +148,8 @@ public class GameSettings {
         if ((Integer.parseInt(size) < MIN_BOARD_SIZE) || (Integer.parseInt(size) > MAX_BOARD_SIZE)) {
             ui.invalidBoardSizeMessage(size);
             setUpBoardSize();
+        } else {
+            setBoardSize(Integer.parseInt(size));
         }
     }
 

@@ -5,10 +5,12 @@ package tictactoe;
 public class MockGameSettings extends GameSettings {
 
     private UI ui;
+    private Board board;
     private int boardSize;
     private String playerOne;
     private String playerTwo;
     private String playerFirstMove;
+    private AbstractHumanMove humanMoveType;
 
     public MockGameSettings() {
     }
@@ -19,6 +21,10 @@ public class MockGameSettings extends GameSettings {
         setUpPlayerTwo(TictactoeConstants.O_MARKER);
         randomizePlayerFirstMove();
         returnBoardSize();
+        Board gameBoard = new Board(this.boardSize);
+        this.board = gameBoard;
+        this.ui.setBoard(gameBoard);
+        this.humanMoveType = new CLIHumanMove(this.board);
     }
 
     public int getBoardSize() {
@@ -58,7 +64,7 @@ public class MockGameSettings extends GameSettings {
     }
 
     public void setUpPlayerTwo(String marker) {
-        this.playerTwo = "human";
+        this.playerTwo = "easy";
     }
 
     public void returnBoardSize() {

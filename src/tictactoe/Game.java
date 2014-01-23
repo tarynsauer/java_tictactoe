@@ -10,12 +10,14 @@ public class Game {
     private String playerOne;
     private String playerTwo;
     private String playerFirstMove;
+    private AbstractHumanMove humanMoveType;
 
     public Game(GameSettings params) {
         this.playerOne = params.getPlayerOne();
         this.playerTwo = params.getPlayerTwo();
         this.playerFirstMove = params.getPlayerFirstMove();
         this.board = params.getBoard();
+        this.humanMoveType = params.getHumanMoveType();
     }
 
     public Board getBoard() {
@@ -24,6 +26,10 @@ public class Game {
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+
+    public AbstractHumanMove getAbstractHumanMove() {
+        return this.humanMoveType;
     }
 
     public String getPlayerOne() {
@@ -59,9 +65,7 @@ public class Game {
 
     public String getMoveByType(String playerType) {
         if (playerType.equals(HUMAN_PLAYER)) {
-            UI ui = new UI();
-            ui.setBoard(board);
-            return ui.getNextMove();
+            return humanMoveType.getNextMove();
         } else if (playerType.equals(EASY_COMPUTER)) {
             return board.getRandomCell();
         } else {
