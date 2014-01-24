@@ -32,6 +32,10 @@ public class Game {
         return this.humanMoveType;
     }
 
+    public void setAbstractHumanMove(AbstractHumanMove humanMoveType) {
+        this.humanMoveType = humanMoveType;
+    }
+
     public String getPlayerOne() {
         return this.playerOne;
     }

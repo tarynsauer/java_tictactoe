@@ -3,7 +3,6 @@ package tictactoe;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import static org.hamcrest.core.Is.is;
@@ -15,8 +14,6 @@ import static org.junit.Assert.assertThat;
  */
 public class GameSettingsTest {
     private GameSettings gameSettings;
-    private ArrayList<String> inputArray;
-    private MockBufferedReader bufferedReader;
     private MockUI ui;
     private MockPrintStream printStream;
 
@@ -27,58 +24,53 @@ public class GameSettingsTest {
         printStream.setPrintCallHistory(new ArrayList<String>());
         ui = new MockUI();
         ui.setPrintStream(printStream);
-
-        bufferedReader = new MockBufferedReader(new InputStreamReader(ui.input));
-        ui.setBufferedReader(bufferedReader);
-
-        inputArray = new ArrayList<String>();
         gameSettings = new GameSettings();
         gameSettings.setUI(ui);
     }
 
     @Test
-    public void testGetAllSettings() {
-        MockUI mockUI = new MockUI();
-        gameSettings.setUI(mockUI);
+    public void testGetAllSettingsSetsPlayerOne() {
         gameSettings.getAllSettings();
         assertEquals(gameSettings.getPlayerOne(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
-    public void testRandomizePlayerFirstMoveReturnsAPlayerObject() {
-        gameSettings.setPlayerOne("human");
-        gameSettings.setPlayerTwo("human");
+    public void testGetAllSettingsSetsPlayerTwo() {
+        gameSettings.getAllSettings();
+        assertEquals(gameSettings.getPlayerTwo(), TictactoeConstants.EASY_COMPUTER);
+    }
+
+    @Test
+    public void testGetAllSettingsSetsBoard() {
+        gameSettings.getAllSettings();
+        assertThat(gameSettings.getBoard(), is((Board.class)));
+    }
+
+    @Test
+    public void testRandomizePlayerFirstMoveReturnsAPlayerTypeString() {
         gameSettings.randomizePlayerFirstMove();
         assertThat(gameSettings.getPlayerFirstMove(), is((String.class)));
     }
 
     @Test
-    public void testSetUpPlayerOneReturnsHumanPlayerObject() throws Exception {
-        inputArray.add("human");
-        bufferedReader.setInputHistory(inputArray);
+    public void testSetUpPlayerOneReturnsEasyComputerPlayerTypeString() throws Exception {
         gameSettings.setUpPlayerOne(TictactoeConstants.X_MARKER);
         assertEquals(gameSettings.getPlayerOne(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
-    public void testSetUpPlayerTwoReturnsHumanPlayerObject() throws Exception {
-        inputArray.add("human");
-        bufferedReader.setInputHistory(inputArray);
+    public void testSetUpPlayerTwoReturnsEasyComputerPlayerTypeString() throws Exception {
         gameSettings.setUpPlayerTwo(TictactoeConstants.O_MARKER);
         assertEquals(gameSettings.getPlayerTwo(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
     public void testGetComputerDifficultyReturnsValidDifficultyValue() throws Exception {
-        inputArray.add("easy");
-        bufferedReader.setInputHistory(inputArray);
         assertEquals(gameSettings.getComputerDifficulty(TictactoeConstants.X_MARKER), "easy");
     }
 
     @Test
     public void testSetUpBoardSizeReturnsValidBoardSize() throws Exception {
-        inputArray.add("3");
-        bufferedReader.setInputHistory(inputArray);
         gameSettings.setUpBoardSize();
         assertEquals(gameSettings.getBoardSize(), 3);
     }

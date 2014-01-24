@@ -19,4 +19,9 @@ public class MockUI extends UI {
     public String returnBoardSize() {
         return "3";
     }
+
+    @Override
+    public String getNextMove() {
+        return "9";
+    }
 }

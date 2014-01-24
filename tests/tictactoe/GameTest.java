@@ -51,11 +51,21 @@ public class GameTest {
     }
 
     @Test
-    public void testGetMoveByTypeReturnsRandomCellForHardAIPlayerType() {
+    public void testGetMoveByTypeReturnsAppropriateCellForHardAIPlayerType() {
         game.getBoard().setCells(new String[]{"X", "O", "X",
                                               "O", "O", "X",
                                               "X", "X", "9"});
         String move = game.getMoveByType(TictactoeConstants.HARD_COMPUTER);
+        assertEquals("9", move);
+    }
+
+    @Test
+    public void testGetMoveByTypeReturnsAppropriateCellForHumanPlayerType() {
+        game.getBoard().setCells(new String[]{"X", "O", "X",
+                "O", "O", "X",
+                "X", "X", "9"});
+        game.setAbstractHumanMove(new MockCLIHumanMove(game.getBoard()));
+        String move = game.getMoveByType(TictactoeConstants.HUMAN_PLAYER);
         assertEquals("9", move);
     }
 

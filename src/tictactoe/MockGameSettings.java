@@ -16,7 +16,7 @@ public class MockGameSettings extends GameSettings {
     }
 
     public void getAllSettings() {
-        this.ui = new UI();
+        this.ui = new MockUI();
         setUpPlayerOne(TictactoeConstants.X_MARKER);
         setUpPlayerTwo(TictactoeConstants.O_MARKER);
         randomizePlayerFirstMove();
