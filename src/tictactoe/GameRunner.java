@@ -24,8 +24,6 @@ public class GameRunner {
             game.makeMove();
         }
         
-        setup.getUI().printBoard();
-        
         if (game.getBoard().winningGame(X_MARKER)) {
             setup.getUI().winningGameMessage(X_MARKER);
         } else if (game.getBoard().winningGame(O_MARKER)) {
@@ -34,6 +32,7 @@ public class GameRunner {
             setup.getUI().tieGameMessage();
         }
         
+        setup.getUI().printBoard();
         setup.getUI().goodbyeMessage();
         System.exit(0);
     }
