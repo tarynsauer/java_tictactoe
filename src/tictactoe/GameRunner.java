@@ -1,7 +1,5 @@
 package tictactoe;
 
-import java.io.IOException;
-
 import static tictactoe.TictactoeConstants.O_MARKER;
 import static tictactoe.TictactoeConstants.X_MARKER;
 
@@ -10,20 +8,32 @@ import static tictactoe.TictactoeConstants.X_MARKER;
  */
 public class GameRunner {
 
-    public static void main(String[] args) throws IOException {
-        CLIGameSettings setup = new CLIGameSettings();
-        setup.configureGame();
-        Game game = new Game(setup);
+    private CLIGameSettings setup;
+    private Game game;
 
+    public GameRunner() {
+        this.setup = new CLIGameSettings();
+        setup.configureGame();
+        this.game = new Game(setup);
         setup.getUI().firstMoveMessage(game.currentPlayer());
-        
+    }
+
+    public void run() {
+      startGamePlay();
+      displayGameOutcomeMessage();
+      exitGame();
+    }
+
+    public void startGamePlay() {
         while (!game.gameOver()) {
             String playerMarker = game.currentPlayer();
             setup.getUI().nextMoveMessage(playerMarker);
             setup.getUI().printBoard();
             game.makeMove();
         }
-        
+    }
+
+    public void displayGameOutcomeMessage() {
         if (game.getBoard().winningGame(X_MARKER)) {
             setup.getUI().winningGameMessage(X_MARKER);
         } else if (game.getBoard().winningGame(O_MARKER)) {
@@ -31,7 +41,9 @@ public class GameRunner {
         } else {
             setup.getUI().tieGameMessage();
         }
+    }
 
+    public void exitGame() {
         setup.getUI().printBoard();
         setup.getUI().goodbyeMessage();
         System.exit(0);
