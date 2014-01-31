@@ -2,7 +2,7 @@ package tictactoe;
 /**
  * Created by Taryn on 1/14/14.
  */
-public class MockGameSettings extends GameSettings {
+public class MockGameSettings extends CLIGameSettings {
 
     private UI ui;
     private Board board;

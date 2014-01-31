@@ -12,7 +12,7 @@ public class Game {
     private String playerFirstMove;
     private AbstractHumanMove humanMoveType;
 
-    public Game(GameSettings params) {
+    public Game(CLIGameSettings params) {
         this.playerOne = params.getPlayerOne();
         this.playerTwo = params.getPlayerTwo();
         this.playerFirstMove = params.getPlayerFirstMove();

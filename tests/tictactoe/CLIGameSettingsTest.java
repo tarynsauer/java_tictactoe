@@ -12,8 +12,8 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Taryn on 1/14/14.
  */
-public class GameSettingsTest {
-    private GameSettings gameSettings;
+public class CLIGameSettingsTest {
+    private CLIGameSettings gameSettings;
     private MockUI ui;
     private MockPrintStream printStream;
 
@@ -24,25 +24,25 @@ public class GameSettingsTest {
         printStream.setPrintCallHistory(new ArrayList<String>());
         ui = new MockUI();
         ui.setPrintStream(printStream);
-        gameSettings = new GameSettings();
+        gameSettings = new CLIGameSettings();
         gameSettings.setUI(ui);
     }
 
     @Test
     public void testGetAllSettingsSetsPlayerOne() {
-        gameSettings.getAllSettings();
+        gameSettings.configureGame();
         assertEquals(gameSettings.getPlayerOne(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
     public void testGetAllSettingsSetsPlayerTwo() {
-        gameSettings.getAllSettings();
+        gameSettings.configureGame();
         assertEquals(gameSettings.getPlayerTwo(), TictactoeConstants.EASY_COMPUTER);
     }
 
     @Test
     public void testGetAllSettingsSetsBoard() {
-        gameSettings.getAllSettings();
+        gameSettings.configureGame();
         assertThat(gameSettings.getBoard(), is((Board.class)));
     }
 

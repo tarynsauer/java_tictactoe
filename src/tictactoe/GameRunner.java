@@ -11,8 +11,8 @@ import static tictactoe.TictactoeConstants.X_MARKER;
 public class GameRunner {
 
     public static void main(String[] args) throws IOException {
-        GameSettings setup = new GameSettings();
-        setup.getAllSettings();
+        CLIGameSettings setup = new CLIGameSettings();
+        setup.configureGame();
         Game game = new Game(setup);
 
         setup.getUI().firstMoveMessage(game.currentPlayer());
@@ -31,7 +31,7 @@ public class GameRunner {
         } else {
             setup.getUI().tieGameMessage();
         }
-        
+
         setup.getUI().printBoard();
         setup.getUI().goodbyeMessage();
         System.exit(0);

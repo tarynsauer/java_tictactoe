@@ -4,7 +4,7 @@ import static tictactoe.TictactoeConstants.*;
 /**
  * Created by Taryn on 1/14/14.
  */
-public class GameSettings {
+public class CLIGameSettings {
 
     private UI ui;
     private Board board;
@@ -14,11 +14,11 @@ public class GameSettings {
     private String playerFirstMove;
     private AbstractHumanMove humanMoveType;
 
-    public GameSettings() {
+    public CLIGameSettings() {
       this.ui = new UI();
     }
 
-    public void getAllSettings() {
+    public void configureGame() {
         setUpPlayerOne(X_MARKER);
         setUpPlayerTwo(O_MARKER);
         randomizePlayerFirstMove();
